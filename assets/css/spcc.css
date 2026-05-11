@@ -1098,7 +1098,7 @@ article.principle:last-child {
 footer.site {
   background: var(--navy);
   color: var(--cream);
-  padding: clamp(20px, 2.5vw, 32px) 0;
+  padding: 12px 0;
 }
 
 footer.site .wrap {
@@ -1106,18 +1106,15 @@ footer.site .wrap {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .footer-identity {
   font-family: var(--nav);
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  color: var(--cream);
-}
-
-.footer-identity strong {
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cream);
 }
 
 .footer-copyright {
@@ -1125,14 +1122,6 @@ footer.site .wrap {
   font-size: 12px;
   letter-spacing: 0.08em;
   color: rgba(255, 254, 249, 0.55);
-}
-
-@media (max-width: 600px) {
-  footer.site .wrap {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
 }
 
 /* =============================================================
