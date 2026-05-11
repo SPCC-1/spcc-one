@@ -607,6 +607,17 @@ nav.primary a.current {
   border-bottom: 1px solid var(--gold);
 }
 
+.explore-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: 28px;
+}
+
+.explore-row .explore-link {
+  margin-top: 0;
+}
+
 .arrow {
   color: var(--gold);
   margin-left: 4px;
