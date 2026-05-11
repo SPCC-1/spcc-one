@@ -1,0 +1,1810 @@
+/* =============================================================
+   SPCC.1 — Editorial Design System
+   spcc.one · v1.0 · May 2026
+   ============================================================= */
+
+:root {
+  /* Color tokens */
+  --navy:        #1F3864;
+  --navy-soft:   #2D4373;
+  --gold:        #B8860B;
+  --gold-soft:   #C9A23C;
+  --cream:       #FFFEF9;
+  --paper:       #F5F1E8;
+  --slate:       #4A5568;
+  --slate-soft:  #6B7280;
+  --body:        #1A202C;
+  --rule:        rgba(184, 134, 11, 0.32); /* gold @ 32% — section rules */
+  --rule-strong: #B8860B;                  /* gold full — emphasis rules */
+  --hairline:    rgba(31, 56, 100, 0.10);
+
+  /* Type tokens */
+  --display: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --body-face: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --nav: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing tokens */
+  --col-reading: 600px;
+  --col-headline: 800px;
+  --col-wide: 1100px;
+  --col-max: 1280px;
+
+  /* Section padding scales with viewport */
+  --section-y: clamp(72px, 10vw, 140px);
+  --section-y-tight: clamp(48px, 7vw, 96px);
+}
+
+/* =============================================================
+   Reset & base
+   ============================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--cream);
+  color: var(--body);
+  font-family: var(--body-face);
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: color 0.15s ease, border-color 0.15s ease;
+  padding-bottom: 1px;
+}
+
+a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+a.no-underline,
+a.no-underline:hover {
+  border-bottom: none;
+}
+
+/* Skip link (a11y) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 12px 18px;
+  font-family: var(--nav);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  z-index: 9999;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* =============================================================
+   Typography
+   ============================================================= */
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+h1 { font-size: clamp(42px, 5.5vw, 68px); }
+h2 { font-size: clamp(30px, 4vw, 46px); }
+h3 { font-size: clamp(22px, 2.4vw, 28px); }
+h4 { font-size: clamp(18px, 1.6vw, 22px); }
+
+p {
+  margin: 0 0 1.4em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Body lead (slightly larger opening paragraph) */
+.lead {
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--body);
+  margin-bottom: 1.6em;
+}
+
+/* Section eyebrow label — small caps Inter Tight, gold */
+.eyebrow {
+  font-family: var(--nav);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 28px;
+  display: block;
+}
+
+/* Inline accent — gold italic for emphasis */
+.accent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* =============================================================
+   Layout primitives
+   ============================================================= */
+
+.wrap {
+  width: 100%;
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+}
+
+.reading {
+  max-width: var(--col-reading);
+}
+
+.headline-col {
+  max-width: var(--col-headline);
+}
+
+.wide-col {
+  max-width: var(--col-wide);
+}
+
+/* Section spacing */
+section {
+  padding: var(--section-y) 0;
+}
+
+section.tight {
+  padding: var(--section-y-tight) 0;
+}
+
+/* Gold horizontal rule — subtle */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: clamp(48px, 6vw, 80px) 0;
+  width: 100%;
+}
+
+.rule.short {
+  width: 80px;
+  border-top: 1px solid var(--gold);
+}
+
+.rule.short.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =============================================================
+   Header / navigation
+   ============================================================= */
+
+header.brand {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 100;
+  border-bottom: 1px solid var(--hairline);
+}
+
+header.brand .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.brandmark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  color: var(--navy);
+}
+.brandmark:hover {
+  color: var(--navy);
+  border: none;
+}
+.brandmark img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.brandmark .wordmark {
+  font-family: var(--nav);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+nav.primary {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 44px);
+}
+
+nav.primary a {
+  font-family: var(--nav);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  border-bottom: none;
+  padding: 4px 0;
+  position: relative;
+}
+
+nav.primary a:hover {
+  color: var(--gold);
+}
+
+nav.primary a.current {
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold);
+}
+
+/* Dropdown — areas */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > button {
+  background: none;
+  border: none;
+  font-family: var(--nav);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  cursor: pointer;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown > button:hover {
+  color: var(--gold);
+}
+
+.nav-dropdown .caret {
+  font-size: 9px;
+  color: var(--gold);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  padding: 18px 24px;
+  min-width: 340px;
+  margin-top: 8px;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--display);
+  color: var(--navy);
+}
+
+.nav-dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-menu .area-label {
+  display: block;
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+
+.nav-dropdown-menu .area-sub {
+  display: block;
+  font-family: var(--nav);
+  font-size: 12px;
+  color: var(--slate);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+/* =============================================================
+   Hero — homepage thesis hook
+   ============================================================= */
+
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--navy);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(31, 56, 100, 0.45) 0%,
+    rgba(31, 56, 100, 0.20) 40%,
+    rgba(31, 56, 100, 0.55) 100%
+  );
+  z-index: 1;
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(80px, 12vw, 140px);
+  padding-bottom: clamp(80px, 12vw, 140px);
+}
+
+.hero .eyebrow {
+  color: var(--gold-soft);
+  margin-bottom: 36px;
+}
+
+.hero-thesis {
+  font-family: var(--display);
+  font-size: clamp(46px, 7vw, 92px);
+  line-height: 1.04;
+  color: var(--cream);
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  max-width: 14ch;
+}
+
+.hero-thesis .accent {
+  color: var(--gold-soft);
+  font-style: italic;
+}
+
+/* Hero variant: text-only (no photo) — uses cream background */
+.hero.text-only {
+  background-color: var(--cream);
+  min-height: 70vh;
+}
+.hero.text-only::before { display: none; }
+.hero.text-only .hero-thesis {
+  color: var(--navy);
+}
+.hero.text-only .eyebrow {
+  color: var(--gold);
+}
+
+/* Hero variant: SCN group photo — the image already carries a heavy
+   navy cast, so the CSS overlay is much lighter (just a subtle
+   bottom gradient to help text-anchor on the lower edge). */
+.hero.hero-scn::before {
+  background: linear-gradient(
+    180deg,
+    rgba(31, 56, 100, 0.10) 0%,
+    rgba(31, 56, 100, 0.05) 50%,
+    rgba(31, 56, 100, 0.40) 100%
+  );
+}
+
+/* =============================================================
+   Section content
+   ============================================================= */
+
+.section-title {
+  margin-bottom: 1em;
+}
+
+.section-intro {
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--body);
+  max-width: var(--col-reading);
+  margin-bottom: 2em;
+}
+
+/* Body prose container — long-form reading */
+.prose {
+  max-width: var(--col-reading);
+  color: var(--body);
+}
+
+.prose p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.prose p + p {
+  margin-top: 0;
+}
+
+/* Pull-statement — flush-left, italic, gold accent */
+.pull-statement {
+  max-width: var(--col-headline);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.45;
+  color: var(--navy);
+  margin: clamp(40px, 5vw, 64px) 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+
+/* =============================================================
+   Three Areas cards
+   ============================================================= */
+
+.areas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 48px;
+}
+
+.area {
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: start;
+}
+
+.area:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.area-name {
+  font-family: var(--nav);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 8px;
+}
+
+.area-body h3 {
+  margin-bottom: 12px;
+}
+
+.area-body p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 60ch;
+}
+
+/* =============================================================
+   Body of Work — list
+   ============================================================= */
+
+.work-list {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  max-width: var(--col-headline);
+}
+
+.work-list li {
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: baseline;
+}
+
+.work-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-title {
+  font-family: var(--display);
+  font-size: 21px;
+  color: var(--navy);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.work-desc {
+  font-family: var(--body-face);
+  font-size: 16px;
+  color: var(--slate);
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+
+.work-meta {
+  font-family: var(--nav);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.explore-link {
+  font-family: var(--nav);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  margin-top: 28px;
+  display: inline-block;
+  border-bottom: 1px solid var(--gold);
+}
+
+.arrow {
+  color: var(--gold);
+  margin-left: 4px;
+}
+
+/* =============================================================
+   Closing frame
+   ============================================================= */
+
+.closing {
+  background: var(--paper);
+  padding: var(--section-y) 0;
+}
+
+.closing .prose {
+  max-width: var(--col-reading);
+}
+
+.closing .signoff-line {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold);
+  margin-top: 1.6em;
+}
+
+/* =============================================================
+   Essay pages (Thesis, About, etc.)
+   ============================================================= */
+
+.essay-head {
+  padding: clamp(60px, 8vw, 120px) 0 clamp(40px, 5vw, 64px);
+}
+
+.essay-head .eyebrow {
+  margin-bottom: 24px;
+}
+
+.essay-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 0 0 24px;
+  max-width: var(--col-headline);
+}
+
+.essay-deck {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--slate);
+  margin: 0;
+  max-width: var(--col-headline);
+  font-weight: 400;
+}
+
+.essay-head .rule {
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  margin-left: 0;
+}
+
+.essay-body {
+  padding: clamp(8px, 1vw, 16px) 0 clamp(80px, 10vw, 120px);
+}
+
+.essay-body .prose .lead {
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.5;
+  color: var(--body);
+  font-style: normal;
+  margin-bottom: 1.6em;
+}
+
+.essay-body .prose p {
+  margin-bottom: 1.4em;
+}
+
+.essay-body .rule {
+  margin: clamp(40px, 5vw, 64px) 0;
+  width: 100%;
+  max-width: var(--col-reading);
+  margin-left: 0;
+}
+
+/* =============================================================
+   Principles list (About — How We Work)
+   ============================================================= */
+
+.principle-section {
+  padding: var(--section-y) 0;
+}
+
+.principles {
+  margin-top: 40px;
+  max-width: var(--col-wide);
+}
+
+article.principle {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: clamp(20px, 3vw, 48px);
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+
+article.principle:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.principle-num {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-top: 6px;
+}
+
+.principle-body h3 {
+  font-size: clamp(20px, 2.2vw, 26px);
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.principle-body p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--body);
+  max-width: 62ch;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  article.principle {
+    grid-template-columns: 60px 1fr;
+  }
+  .principle-num { font-size: 32px; }
+}
+
+/* =============================================================
+   Background sectors (About — Institutional Background)
+   ============================================================= */
+
+.background-sectors {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: var(--col-wide);
+}
+
+.bg-sector {
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.bg-sector h3 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.bg-sector p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* =============================================================
+   Team grid (About — The Team)
+   ============================================================= */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(32px, 4vw, 56px);
+  margin-top: 40px;
+  max-width: var(--col-wide);
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-portrait {
+  margin: 0 0 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--paper);
+}
+
+.team-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%);
+  transition: filter 0.3s ease;
+}
+
+.team-member:hover .team-portrait img {
+  filter: grayscale(0%);
+}
+
+.team-name {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.team-role {
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 16px;
+}
+
+.team-bio {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+  margin: 0;
+}
+
+/* =============================================================
+   Areas overview — three Area sections with editorial sidebar
+   ============================================================= */
+
+.area-section {
+  padding: clamp(56px, 7vw, 96px) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.area-section.alt {
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+
+.area-section-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+.area-section-meta {
+  position: sticky;
+  top: 120px;
+  padding-top: 8px;
+}
+
+.area-num {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.area-section-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.area-section-content h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.15;
+  margin: 0 0 24px;
+  max-width: 16ch;
+}
+
+.area-section-content .prose {
+  max-width: var(--col-reading);
+  margin-bottom: 36px;
+}
+
+.area-section-content .prose p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.engagements-title {
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 36px 0 18px;
+}
+
+.engagement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  max-width: var(--col-headline);
+}
+
+.engagement-list li {
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  display: block;
+  font-family: var(--body-face);
+}
+
+.engagement-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.engagement-list li strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.engagement-list li span {
+  display: block;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+  max-width: 64ch;
+}
+
+.engagement-list li a {
+  font-size: inherit;
+}
+
+@media (max-width: 800px) {
+  .area-section-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .area-section-meta {
+    position: static;
+    padding-top: 0;
+  }
+  .area-num { font-size: 40px; }
+}
+
+/* End-of-essay nav grid */
+.essay-end {
+  padding: 0 0 clamp(80px, 10vw, 120px);
+}
+
+.essay-end .rule {
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  width: 80px;
+  border-top: 1px solid var(--gold);
+}
+
+.end-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 48px);
+  max-width: var(--col-wide);
+}
+
+.end-nav-card {
+  display: block;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  color: var(--navy);
+  border-bottom: none;
+}
+
+.end-nav-card:hover {
+  color: var(--navy);
+  border-bottom: none;
+}
+
+.end-nav-card:hover .end-nav-title {
+  color: var(--gold);
+}
+
+.end-nav-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.end-nav-title {
+  display: block;
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 10px;
+  transition: color 0.15s ease;
+}
+
+.end-nav-desc {
+  display: block;
+  font-family: var(--body-face);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+/* =============================================================
+   Footer
+   ============================================================= */
+
+footer.site {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 56px 0 48px;
+}
+
+footer.site .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer.site .footer-line {
+  font-family: var(--nav);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 254, 249, 0.85);
+}
+
+footer.site .footer-line strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+footer.site a {
+  color: var(--cream);
+  border-bottom: 1px solid rgba(184, 134, 11, 0.6);
+}
+
+footer.site a:hover {
+  color: var(--gold-soft);
+  border-bottom-color: var(--gold-soft);
+}
+
+footer.site .footer-meta {
+  font-family: var(--nav);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 254, 249, 0.55);
+  margin-top: 14px;
+}
+
+footer.site .footer-rule {
+  border: 0;
+  border-top: 1px solid rgba(184, 134, 11, 0.35);
+  margin: 24px 0;
+  width: 80px;
+}
+
+/* =============================================================
+   Responsive
+   ============================================================= */
+
+@media (max-width: 800px) {
+  body { font-size: 17px; }
+
+  header.brand .wrap {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .brandmark .wordmark { font-size: 15px; }
+  .brandmark img { width: 28px; height: 28px; }
+
+  nav.primary { gap: 18px; }
+  nav.primary a, .nav-dropdown > button { font-size: 13px; }
+
+  .hero { min-height: 70vh; }
+
+  .area {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .area-name { padding-top: 0; }
+
+  .work-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* =============================================================
+   Standalone essay pages — Body of Work
+   ============================================================= */
+
+/* Back link (above the eyebrow) */
+.back-link {
+  display: inline-block;
+  font-family: var(--nav);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 32px;
+  border-bottom: none;
+}
+.back-link:hover {
+  color: var(--gold);
+  border-bottom: none;
+}
+
+/* Author byline (below the deck) */
+.byline {
+  font-family: var(--display);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--slate);
+  margin: 16px 0 0;
+}
+
+/* Essay actions (download button etc.) */
+.essay-actions {
+  margin-top: 28px;
+}
+
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--nav);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold);
+  padding: 6px 0;
+}
+
+.download-link:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.download-link .arrow {
+  color: var(--gold);
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+/* In-essay section headers */
+h2.section-h {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: clamp(40px, 5vw, 64px) 0 28px;
+  max-width: var(--col-headline);
+}
+
+/* In-essay subsection headers */
+h3.section-sub {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.2;
+  color: var(--navy);
+  margin: clamp(40px, 5vw, 56px) 0 20px;
+  max-width: var(--col-headline);
+}
+
+/* Eyebrow variants */
+.eyebrow.section-num,
+.eyebrow.part-eyebrow {
+  display: block;
+  margin-top: clamp(48px, 6vw, 80px);
+  margin-bottom: 16px;
+}
+
+.eyebrow.part-eyebrow {
+  color: var(--navy);
+  letter-spacing: 0.28em;
+}
+
+/* Section glyph separator */
+.section-glyph {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 0.5em;
+  margin: clamp(56px, 7vw, 96px) 0;
+  padding-right: 0.5em; /* counter trailing letter-spacing visual offset */
+}
+
+/* Prose lists (within .prose) */
+.prose-list {
+  list-style: disc;
+  padding-left: 1.4em;
+  margin: 0 0 1.4em;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--body);
+}
+
+.prose-list.numbered {
+  list-style: decimal;
+}
+
+.prose-list li {
+  margin-bottom: 0.6em;
+  padding-left: 0.2em;
+}
+
+/* Closing quote with cite */
+blockquote.pull-statement.closing-quote {
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+.pull-statement cite {
+  display: block;
+  font-style: normal;
+  font-size: 16px;
+  color: var(--gold);
+  margin-top: 18px;
+  font-family: var(--nav);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* =============================================================
+   Figure placeholders (charts not yet rendered as images)
+   ============================================================= */
+
+.essay-figure {
+  margin: clamp(40px, 5vw, 64px) 0;
+  max-width: var(--col-headline);
+}
+
+.figure-placeholder {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.figure-placeholder .figure-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.figure-placeholder p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--body);
+  margin: 0 0 12px;
+}
+
+.figure-placeholder .figure-source {
+  font-style: normal;
+  font-family: var(--nav);
+  font-size: 13px;
+  color: var(--slate);
+  letter-spacing: 0.02em;
+  margin-top: 16px;
+}
+
+/* =============================================================
+   Callout box (e.g. "What's Coming Next?")
+   ============================================================= */
+
+aside.callout-box {
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  padding: clamp(28px, 4vw, 40px) clamp(28px, 4vw, 44px);
+  margin: clamp(48px, 6vw, 80px) 0;
+  max-width: var(--col-headline);
+}
+
+aside.callout-box h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: var(--navy);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+aside.callout-box p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  margin: 0;
+  max-width: 64ch;
+}
+
+/* =============================================================
+   Footnotes
+   ============================================================= */
+
+.footnotes {
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--rule);
+  max-width: var(--col-headline);
+}
+
+.footnotes-title {
+  font-family: var(--nav);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 24px;
+}
+
+.footnotes ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+  margin: 0;
+}
+
+.footnotes li {
+  font-family: var(--body-face);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--slate);
+  margin-bottom: 14px;
+  padding-left: 0.2em;
+}
+
+.footnotes li em {
+  color: var(--body);
+}
+
+.footnotes a:not(.fn-back) {
+  border-bottom: 1px solid var(--rule);
+}
+
+sup.fnref {
+  font-size: 11px;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+sup.fnref a {
+  color: var(--gold);
+  border-bottom: none;
+  font-family: var(--nav);
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+sup.fnref a:hover {
+  color: var(--navy);
+}
+
+a.fn-back {
+  color: var(--gold);
+  border-bottom: none;
+  margin-left: 6px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+a.fn-back:hover {
+  color: var(--navy);
+}
+
+/* =============================================================
+   Insight grid (Care Economy — Phase I insights)
+   ============================================================= */
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  margin: 40px 0 0;
+  max-width: var(--col-wide);
+}
+
+.insight-card {
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--gold);
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.insight-card .insight-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.insight-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.insight-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+  margin: 0;
+}
+
+/* =============================================================
+   Pathway grid (Care Economy — current/future, Pathway 1/2)
+   ============================================================= */
+
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+  margin: 40px 0 0;
+  max-width: var(--col-wide);
+}
+
+.pathway-card {
+  background: var(--cream);
+  border-top: 2px solid var(--gold);
+  padding: clamp(28px, 3.5vw, 40px) 0 clamp(28px, 3.5vw, 40px);
+}
+
+.pathway-card.pathway-current,
+.pathway-card.pathway-future {
+  padding-top: clamp(28px, 3.5vw, 40px);
+  padding-left: clamp(20px, 2.5vw, 32px);
+  padding-right: clamp(20px, 2.5vw, 32px);
+  background: var(--paper);
+  border-top: 2px solid var(--gold);
+}
+
+.pathway-card.pathway-current {
+  background: rgba(31, 56, 100, 0.04);
+  border-top-color: var(--slate);
+}
+
+.pathway-card .pathway-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.pathway-card.pathway-current .pathway-label {
+  color: var(--slate);
+}
+
+.pathway-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 0 0 16px;
+}
+
+.pathway-card p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+  margin: 0 0 14px;
+}
+
+.pathway-card p:last-child {
+  margin-bottom: 0;
+}
+
+.pathway-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.pathway-bullets li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+  padding: 8px 0 8px 22px;
+  position: relative;
+}
+
+.pathway-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.pathway-note {
+  font-size: 14px !important;
+  color: var(--slate) !important;
+  margin-top: 8px !important;
+}
+
+/* =============================================================
+   Enterprise model figure (Care Economy flywheel)
+   ============================================================= */
+
+.enterprise-model-figure {
+  margin: clamp(40px, 5vw, 64px) 0;
+  max-width: var(--col-wide);
+  background: var(--paper);
+  padding: clamp(32px, 5vw, 56px);
+  border: 1px solid var(--rule);
+}
+
+.enterprise-model-figure .model-center {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.enterprise-model-figure .model-center-label {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.enterprise-model-figure .model-component {
+  padding: 20px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.enterprise-model-figure .model-component:first-of-type {
+  border-top: none;
+  padding-top: 8px;
+}
+
+.enterprise-model-figure .model-component h4 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+
+.enterprise-model-figure .model-component p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--slate);
+  margin: 0;
+  max-width: 62ch;
+}
+
+@media (min-width: 720px) {
+  .enterprise-model-figure {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "center center"
+      "top    right"
+      "left   bottom";
+    gap: clamp(24px, 3vw, 40px);
+  }
+  .enterprise-model-figure .model-center { grid-area: center; margin-bottom: 0; border-bottom: 1px solid var(--rule); padding-bottom: clamp(24px, 3vw, 40px); }
+  .enterprise-model-figure .model-top    { grid-area: top; }
+  .enterprise-model-figure .model-right  { grid-area: right; }
+  .enterprise-model-figure .model-bottom { grid-area: bottom; }
+  .enterprise-model-figure .model-left   { grid-area: left; }
+  .enterprise-model-figure .model-component {
+    border-top: none;
+    border-left: 2px solid var(--gold);
+    padding: 4px 0 4px 18px;
+  }
+  .enterprise-model-figure .model-component:first-of-type { padding-top: 4px; }
+}
+
+.enterprise-model-figure figcaption {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--slate);
+  text-align: center;
+  margin-top: clamp(28px, 4vw, 40px);
+  padding-top: clamp(20px, 3vw, 28px);
+  border-top: 1px solid var(--rule);
+  grid-column: 1 / -1;
+}
+
+/* =============================================================
+   Phase grid (Care Economy — Phase II three acts)
+   ============================================================= */
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  margin: 40px 0 0;
+  max-width: var(--col-wide);
+}
+
+.phase-card {
+  border-top: 2px solid var(--gold);
+  padding: clamp(24px, 3vw, 32px) 0 0;
+}
+
+.phase-card .phase-label {
+  display: block;
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.phase-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.25;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.phase-card .phase-months {
+  font-family: var(--nav);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--slate);
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+
+.phase-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.phase-card ul li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--body);
+  padding: 6px 0 6px 18px;
+  position: relative;
+}
+
+.phase-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  color: var(--gold);
+}
+
+.phase-card .phase-note {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.55;
+  margin: 18px 0 0;
+}
+
+/* =============================================================
+   Leadership grid (Care Economy — leader cards)
+   ============================================================= */
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(32px, 4vw, 56px);
+  margin: 40px 0 0;
+  max-width: var(--col-wide);
+}
+
+.leader-card {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+}
+
+.leader-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--navy);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.leader-card .leader-role {
+  font-family: var(--nav);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 4px;
+}
+
+.leader-card .leader-affiliation {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--slate);
+  margin: 0 0 20px;
+}
+
+.leader-card .leader-bio {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--body);
+  margin: 0 0 18px;
+  max-width: 60ch;
+}
+
+.leader-card .leader-contact {
+  font-family: var(--nav);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.leader-card .leader-contact a {
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold);
+}
+
+.leader-card .leader-contact a:hover {
+  color: var(--gold);
+}
+
+/* =============================================================
+   Closing statement (Care Economy — final invitation)
+   ============================================================= */
+
+.closing-statement {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  color: var(--slate-soft);
+  margin: clamp(40px, 5vw, 64px) auto;
+  max-width: 18ch;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.closing-frame {
+  text-align: center;
+  margin: 0 auto;
+  max-width: var(--col-reading);
+}
+
+.closing-frame p {
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--slate);
+}
+
+/* =============================================================
+   Body of Work — grouped list eyebrows
+   ============================================================= */
+
+.essay-body > .wrap > .eyebrow + .work-list {
+  margin-top: 24px;
+}
