@@ -284,23 +284,27 @@ nav.primary a.current {
   position: relative;
 }
 
-.nav-dropdown > button {
-  background: none;
-  border: none;
+.nav-dropdown > a {
   font-family: var(--nav);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--navy);
-  cursor: pointer;
+  border-bottom: none;
   padding: 4px 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.nav-dropdown > button:hover {
+.nav-dropdown > a:hover {
   color: var(--gold);
+  border-bottom: none;
+}
+
+.nav-dropdown > a.current {
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold);
 }
 
 .nav-dropdown .caret {
@@ -363,9 +367,9 @@ nav.primary a.current {
 
 .hero {
   position: relative;
-  min-height: 78vh;
+  min-height: 65vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background-color: var(--navy);
   background-position: center;
   background-size: cover;
@@ -400,17 +404,74 @@ nav.primary a.current {
 
 .hero-thesis {
   font-family: var(--display);
-  font-size: clamp(46px, 7vw, 92px);
-  line-height: 1.04;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.1;
   color: var(--cream);
   letter-spacing: -0.015em;
   font-weight: 500;
-  max-width: 14ch;
 }
 
 .hero-thesis .accent {
   color: var(--gold-soft);
   font-style: italic;
+}
+
+/* Hero variant: interior page essay — flat navy, type sits high,
+   compact band that fits above the fold. Used on Thesis / Areas /
+   Body of Work / About. */
+.hero.hero-essay {
+  min-height: 0;
+}
+
+.hero.hero-essay::before {
+  display: none;
+}
+
+.hero.hero-essay .wrap {
+  padding-top: clamp(40px, 4vw, 64px);
+  padding-bottom: clamp(48px, 5vw, 72px);
+}
+
+.hero-essay-eyebrow {
+  font-family: var(--nav);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin: 0 0 24px;
+  display: block;
+}
+
+.hero-essay-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(44px, 5.6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0 0 22px;
+  max-width: 18ch;
+}
+
+.hero-essay-deck {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.45;
+  color: #ffffff;
+  margin: 0;
+  max-width: 56ch;
+  font-weight: 400;
+}
+
+.hero-essay-prose {
+  font-family: var(--body-face);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 26px 0 0;
+  max-width: 64ch;
 }
 
 /* Hero variant: text-only (no photo) — uses cream background */
@@ -542,6 +603,136 @@ nav.primary a.current {
   line-height: 1.65;
   color: var(--body);
   margin: 0;
+}
+
+/* =============================================================
+   Body of Work — feature sections (one per work, with PDF embeds)
+   ============================================================= */
+
+.work-feature {
+  padding: clamp(56px, 7vw, 96px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-feature:last-of-type {
+  border-bottom: none;
+}
+
+.work-feature > .wrap > .eyebrow {
+  margin-bottom: 20px;
+}
+
+.work-feature-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin: 0 0 12px;
+  max-width: var(--col-headline);
+}
+
+.work-feature-deck {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.4;
+  color: var(--gold);
+  margin: 0 0 24px;
+  max-width: var(--col-headline);
+}
+
+.work-feature-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body);
+  margin: 0 0 36px;
+  max-width: 64ch;
+}
+
+.pdf-embed {
+  width: 100%;
+  max-width: var(--col-wide);
+  height: clamp(520px, 80vh, 920px);
+  margin: 0 0 28px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.pdf-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.work-feature-actions {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Split layout — image alongside meta (used for TEDx feature) */
+.work-feature-split {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+}
+
+.work-feature-image {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--paper);
+}
+
+.work-feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.work-feature-image a {
+  display: block;
+  height: 100%;
+  border: none;
+}
+
+.work-feature-image a:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 900px) {
+  .work-feature-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pdf-embed {
+    height: clamp(420px, 70vh, 700px);
+  }
+}
+
+/* Two-column pair grid (Ongoing Writing + Forthcoming) */
+.work-feature-pair-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .work-feature-pair-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 }
 
 /* =============================================================
@@ -899,8 +1090,10 @@ article.principle:last-child {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(15%);
+  object-position: center top;
+  filter: grayscale(5%);
   transition: filter 0.35s ease;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .sector-h:hover .sector-h-image img {
@@ -1012,14 +1205,12 @@ article.principle:last-child {
 
 .area-section-grid {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) 1fr;
-  gap: clamp(32px, 5vw, 80px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
   align-items: start;
 }
 
 .area-section-meta {
-  position: sticky;
-  top: 120px;
   padding-top: 8px;
 }
 
@@ -1059,6 +1250,33 @@ article.principle:last-child {
 .area-section-content .prose p {
   font-size: 18px;
   line-height: 1.7;
+}
+
+.area-section-image {
+  aspect-ratio: 4 / 3;
+  background: var(--paper);
+  overflow: hidden;
+  margin: clamp(20px, 2.5vw, 32px) 0 0;
+  width: 100%;
+}
+
+.area-section-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%);
+  transition: filter 0.35s ease;
+}
+
+.area-section:hover .area-section-image img {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 800px) {
+  .area-section-image {
+    aspect-ratio: 16 / 10;
+    margin-top: 16px;
+  }
 }
 
 .engagements-title {
