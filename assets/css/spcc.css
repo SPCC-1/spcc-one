@@ -1325,6 +1325,10 @@ article.principle:last-child {
   max-width: 64ch;
 }
 
+.engagement-list li span + span {
+  margin-top: 1em;
+}
+
 .engagement-list li a {
   font-size: inherit;
 }
