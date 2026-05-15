@@ -36,6 +36,9 @@
       <img src="../assets/images/logo-mark.png" alt="" aria-hidden="true" />
       <span class="wordmark">SPCC.1</span>
     </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="primary" aria-label="Primary">
       <a href="../thesis/">Our Thesis</a>
       <div class="nav-dropdown">
@@ -102,32 +105,7 @@
   </section>
 
   <!-- =============================================================
-       PDF 2 — BUILDING A NEW CARE ECONOMY CONCEPT PAPER
-       ============================================================= -->
-  <section class="work-feature">
-    <div class="wrap">
-      <span class="eyebrow">Concept Paper · 2026</span>
-      <h2 class="work-feature-title">Building a New Care Economy</h2>
-      <p class="work-feature-deck">A Worker-to-Owner Enterprise-Level Exploration.</p>
-      <p class="work-feature-desc">Applying the Shared Prosperity architecture to California's care economy — testing whether redesigned enterprise structures, shared services, and worker ownership pathways can stabilize a sector facing a structural crisis of affordability, workforce, and healthspan.</p>
-
-      <div class="pdf-embed">
-        <iframe src="../assets/pdfs/care-economy.pdf" title="Building a New Care Economy — full concept paper PDF"></iframe>
-      </div>
-
-      <div class="work-feature-actions">
-        <a href="../assets/pdfs/care-economy.pdf" class="download-link no-underline" download>
-          Download PDF <span class="arrow">↓</span>
-        </a>
-        <a href="../assets/pdfs/care-economy.pdf" class="download-link no-underline" target="_blank" rel="noopener">
-          Open in new tab <span class="arrow">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================================
-       PDF 3 — A NATION OF ENTREPRENEURS
+       PDF 2 — A NATION OF ENTREPRENEURS
        ============================================================= -->
   <section class="work-feature">
     <div class="wrap">
@@ -219,5 +197,19 @@
   </div>
 </footer>
 
+
+<script>
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav.primary');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+})();
+</script>
 </body>
 </html>
