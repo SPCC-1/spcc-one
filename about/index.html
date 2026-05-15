@@ -36,6 +36,9 @@
       <img src="../assets/images/logo-mark.png" alt="" aria-hidden="true" />
       <span class="wordmark">SPCC.1</span>
     </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="primary" aria-label="Primary">
       <a href="../thesis/">Our Thesis</a>
       <div class="nav-dropdown">
@@ -194,7 +197,7 @@
           </figure>
           <div class="team-body">
             <h3 class="team-name">Amy Chan</h3>
-            <p class="team-role">Principal, Strategy &amp; Operations</p>
+            <p class="team-role">Principal</p>
             <p class="team-bio">Operational strategist with two decades of leadership in equity-driven initiatives, organizational design, change management, and civic leadership. Amy oversees operations, stakeholder alignment, and partnership coordination — ensuring the work produces measurable progress against the priorities that matter most.</p>
           </div>
         </article>
@@ -205,7 +208,7 @@
           </figure>
           <div class="team-body">
             <h3 class="team-name">Alfred Solis</h3>
-            <p class="team-role">Senior Advisor, Design &amp; Communications</p>
+            <p class="team-role">Senior Advisor</p>
             <p class="team-bio">Creative systems builder and learning designer with a background in Fortune 500 consulting, public education reform, and social innovation. Alfred leads the design of frameworks, tools, and visual systems that translate complex ideas into actionable models for partners and communities at scale.</p>
           </div>
         </article>
@@ -243,5 +246,19 @@
   </div>
 </footer>
 
+
+<script>
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav.primary');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+})();
+</script>
 </body>
 </html>
