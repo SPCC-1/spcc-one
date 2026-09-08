@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10 — One and the Same Person</title>
+  <meta name="description" content="A conversation about Buckminster Fuller, collective machinery, large language models, and the enduring fear of Frankenstein.">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #666b73;
+      --line: #e3e6eb;
+      --navy: #1f3864;
+      --blue: #1c4189;
+      --gold: #fec62b;
+      --dark-gold: #8a6508;
+      --alfredo: var(--dark-gold);
+      --ai: var(--blue);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 58px 0 90px;
+    }
+
+    .artifact-number,
+    .voice-label,
+    figcaption,
+    footer {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+    }
+
+    .artifact-number {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.25rem, 5.5vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-weight: 700;
+    }
+
+    .deck {
+      max-width: 710px;
+      margin: 28px 0 46px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, .72fr) minmax(0, 1.55fr);
+      gap: 22px;
+      align-items: stretch;
+      margin: 0 0 64px;
+    }
+
+    figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: 100%;
+      max-height: 610px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border: 1px solid rgba(32, 35, 31, .12);
+    }
+
+    .passage img { object-position: center 35%; }
+
+    figcaption {
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.4;
+      text-transform: none;
+    }
+
+    .conversation {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 720px);
+      gap: 34px;
+      justify-content: center;
+      padding: 54px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .voice-label {
+      position: sticky;
+      top: 26px;
+      align-self: start;
+      margin: 5px 0 0;
+      padding-left: 15px;
+      line-height: 1.5;
+    }
+
+    .alfredo .voice-label { border-left: 4px solid var(--alfredo); }
+    .ai .voice-label { border-left: 4px solid var(--ai); }
+
+    .prose p {
+      margin: 0 0 1.2em;
+    }
+
+    .prose p:first-child::first-letter {
+      float: left;
+      margin: .08em .09em 0 0;
+      color: var(--alfredo);
+      font-size: 4.2rem;
+      line-height: .73;
+    }
+
+    .ai {
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    .ai .prose {
+      padding: 30px 34px 18px;
+      background: #fff;
+      border-top: 4px solid var(--gold);
+    }
+
+    .ai .prose p:first-child::first-letter {
+      float: none;
+      margin: 0;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    blockquote {
+      margin: 28px 0 12px;
+      padding: 0 0 0 24px;
+      border-left: 4px solid var(--gold);
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.42;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--navy);
+      text-align: center;
+      text-transform: none;
+    }
+
+    @media (max-width: 760px) {
+      main { width: min(calc(100% - 28px), var(--max)); padding-top: 34px; }
+      .source-grid { grid-template-columns: 1fr; margin-bottom: 36px; }
+      figure img { max-height: none; height: auto; }
+      .conversation { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+      .voice-label { position: static; }
+      .ai .prose { padding: 24px 22px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="artifact-number">Nine Chains · Vignette 10</p>
+      <h1>One and the<br>Same Person</h1>
+      <p class="deck">A reading conversation between Buckminster Fuller, Alfredo Mathew, and AI—on collective machinery, the large language model, and the persistent fear of Frankenstein.</p>
+    </header>
+
+    <section class="source-grid" style="grid-template-columns: 1fr" aria-label="Source image">
+      <figure class="passage">
+        <img style="height:auto; max-height:none; object-fit:contain" src="assets/fullers-mutual-extension-mechanism.jpg" alt="Buckminster Fuller passage describing immense mechanisms as mutual extensions of multitudes of people">
+        <figcaption>Buckminster Fuller · Nine Chains to the Moon · Image 10</figcaption>
+      </figure>
+    </section>
+
+    <section class="conversation alfredo">
+      <h2 class="voice-label">Alfredo<br>Interpretation</h2>
+      <div class="prose">
+        <p>Fuller says an industrial mechanism so gargantuan cannot plausibly be the extension of any one person. It can only be justified as the extension of multitudes—and, at the moment of its shared use, those people become “one and the same person.”</p>
+        <p>That sounds like a definition of a large language model. It literally sounds like AI.</p>
+        <p>An LLM is not the extension of any one person. It is possible only through the aggregation of thousands, hundreds of thousands, millions of people. Their language, labor, knowledge, errors, and imagination are gathered into one mechanism. It is like the Uni-Mind from the Marvel universe: civilization appearing to speak as one.</p>
+        <p>Fuller finds in this aggregation a reason not to fear Frankenstein—not to believe that a human-made machine will overpower humanity. I do not understand how he makes that leap. Frankenstein seems like a valid fear.</p>
+        <p>If you believe scientific pursuit is always justified, good, and benign, then perhaps you embrace the mechanism without fear. But Fuller could not see around the corner, and neither can we. The atomic bomb has existed for only about eighty years. Who can say whether we extinguish ourselves twenty, one hundred, or five hundred years from now? His confidence feels Pollyannaish.</p>
+      </div>
+    </section>
+
+    <section class="conversation ai">
+      <h2 class="voice-label">AI<br>Synthesis</h2>
+      <div class="prose">
+        <p>Fuller’s mechanism and the large language model share a structural truth: neither has a solitary human scale. Each condenses distributed participation into an apparatus that no individual could build, know, or operate alone. The machine is collective before it appears intelligent.</p>
+        <p>But aggregation does not prove identity. Millions of people contributing to one system do not thereby become “one and the same person.” Their contributions are unevenly taken, filtered, valued, and controlled. The mechanism may contain traces of the multitude while remaining the property of a few.</p>
+        <p>This is where Frankenstein returns. Mary Shelley’s warning is not simply that a creation becomes stronger than its creator. The catastrophe begins when the creator refuses responsibility for the life and consequences of what he has made. The danger is abandonment disguised as invention.</p>
+        <p>Fuller is right that the machine extends humanity. Yet an extension can amplify domination as readily as mutuality. The decisive question is not whether the mechanism is made from all of us, but who directs it, who benefits from it, and who bears its failures.</p>
+        <blockquote>A machine may speak with the traces of millions<br><br>and still answer to the power of only a few.</blockquote>
+      </div>
+    </section>
+
+    <nav aria-label="Vignette navigation" style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:48px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.86rem"><a href="../9-the-highway-through-the-meadow/index.html" style="color:var(--blue);text-decoration:none">← Previous</a><a href="../index.html" style="color:var(--navy);text-decoration:none;font-weight:700">All vignettes</a><a href="../11-the-house-inside-the-word/index.html" style="color:var(--blue);text-decoration:none;text-align:right">Next →</a></nav>
+    <footer>Fuller · Alfredo · AI</footer>
+  </main>
+</body>
+</html>

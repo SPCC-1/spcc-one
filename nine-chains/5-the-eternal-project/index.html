@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5 — The Eternal Project</title>
+  <meta name="description" content="A conversation about Buckminster Fuller, unattainable perfection, infinity, comprehensive understanding, and the work of prophets.">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #666b73;
+      --line: #e3e6eb;
+      --navy: #1f3864;
+      --blue: #1c4189;
+      --gold: #fec62b;
+      --dark-gold: #8a6508;
+      --alfredo: var(--dark-gold);
+      --ai: var(--blue);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 58px 0 90px;
+    }
+
+    .artifact-number,
+    .voice-label,
+    figcaption,
+    footer {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+    }
+
+    .artifact-number {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.25rem, 5.5vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-weight: 700;
+    }
+
+    .deck {
+      max-width: 710px;
+      margin: 28px 0 46px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, .72fr) minmax(0, 1.55fr);
+      gap: 22px;
+      align-items: stretch;
+      margin: 0 0 64px;
+    }
+
+    figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: 100%;
+      max-height: 610px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border: 1px solid rgba(32, 35, 31, .12);
+    }
+
+    .passage img { object-position: center 35%; }
+
+    figcaption {
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.4;
+      text-transform: none;
+    }
+
+    .conversation {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 720px);
+      gap: 34px;
+      justify-content: center;
+      padding: 54px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .voice-label {
+      position: sticky;
+      top: 26px;
+      align-self: start;
+      margin: 5px 0 0;
+      padding-left: 15px;
+      line-height: 1.5;
+    }
+
+    .alfredo .voice-label { border-left: 4px solid var(--alfredo); }
+    .ai .voice-label { border-left: 4px solid var(--ai); }
+
+    .prose p {
+      margin: 0 0 1.2em;
+    }
+
+    .prose p:first-child::first-letter {
+      float: left;
+      margin: .08em .09em 0 0;
+      color: var(--alfredo);
+      font-size: 4.2rem;
+      line-height: .73;
+    }
+
+    .ai {
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    .ai .prose {
+      padding: 30px 34px 18px;
+      background: #fff;
+      border-top: 4px solid var(--gold);
+    }
+
+    .ai .prose p:first-child::first-letter {
+      float: none;
+      margin: 0;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    blockquote {
+      margin: 28px 0 12px;
+      padding: 0 0 0 24px;
+      border-left: 4px solid var(--gold);
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.42;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--navy);
+      text-align: center;
+      text-transform: none;
+    }
+
+    @media (max-width: 760px) {
+      main { width: min(calc(100% - 28px), var(--max)); padding-top: 34px; }
+      .source-grid { grid-template-columns: 1fr; margin-bottom: 36px; }
+      figure img { max-height: none; height: auto; }
+      .conversation { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+      .voice-label { position: static; }
+      .ai .prose { padding: 24px 22px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="artifact-number">Nine Chains · Vignette 5</p>
+      <h1>The Eternal<br>Project</h1>
+      <p class="deck">A reading conversation between Buckminster Fuller, Alfredo Mathew, and AI—on unattainable perfection, the universe between zero and one, and the lonely work of prophets.</p>
+    </header>
+
+    <section class="source-grid" style="grid-template-columns: 1fr" aria-label="Source image">
+      <figure class="passage">
+        <img style="height:auto; max-height:none; object-fit:contain" src="assets/fullers-perfection.jpg" alt="Buckminster Fuller passage about perfection as an unattainable universal yardstick">
+        <figcaption>Buckminster Fuller · Nine Chains to the Moon · Image 5</figcaption>
+      </figure>
+    </section>
+
+    <section class="conversation alfredo">
+      <h2 class="voice-label">Alfredo<br>Interpretation</h2>
+      <div class="prose">
+        <p>The prophet always deals with perfection, infinity, and truth. I was struck when Fuller said that perfection is never attainable in reality. Never Neverland is perfect precisely because it is somewhere children can dream of, not a real destination.</p>
+        <p>Utopia means no place, yet it becomes the universal yardstick against which Fuller measures humanity. He seems to believe, as the scientific mind believes, that it is possible to travel from zero to one—from alpha to omega—and understand everything between them.</p>
+        <p>I imagine perfection as either zero or one: the point from which the universe begins and the limit to which its radius extends. Fuller places Spaceship Earth at the center of our available perspective. The Earth is not static; it moves through a universe that is itself in motion.</p>
+        <p>If we could measure everything—if we could develop a comprehensive understanding of everything—perhaps we could understand energy, God, and the universe.</p>
+        <p>I understand what Fuller is trying to do. It is incredible and a little insane. This is not a mainstream project. It is an eternal project. Most people are hungry. We want love, importance, recognition, and enough strength to finish the day. We are not occupied by infinity and eternity. Most people cannot handle them. That is why this becomes the work of prophets.</p>
+      </div>
+    </section>
+
+    <section class="conversation ai">
+      <h2 class="voice-label">AI<br>Synthesis</h2>
+      <div class="prose">
+        <p>Fuller makes perfection useful by refusing to make it reachable. It is not a finished condition awaiting construction, but an orienting measure. Like a horizon, it gives direction precisely because it recedes as we approach.</p>
+        <p>This protects the ideal from one danger while exposing another. A society that claims to have achieved perfection can justify coercion in the name of preserving it. But a society with no image of a better order becomes captive to whatever presently exists. Utopia must remain “no place” while continuing to judge every place.</p>
+        <p>Alfredo recognizes the prophetic scale of Fuller’s ambition: energy, God, universe, beginning, end. The prophet speaks from the whole to people living inside the day. That distance creates both illumination and estrangement. A universal vision can reveal the pattern while overlooking the hungry person directly in front of it.</p>
+        <p>The eternal project therefore needs translation. Infinity must return as bread, shelter, relationship, or an instrument another person can use. Otherwise comprehensiveness becomes another private Never Neverland—magnificent, internally coherent, and uninhabitable.</p>
+        <blockquote>Perfection is not the destination.<br><br>It is the impossible measure that asks every real thing what it might yet become.</blockquote>
+      </div>
+    </section>
+
+    <nav aria-label="Vignette navigation" style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:48px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.86rem"><a href="../4-the-deroboting-of-humanity/index.html" style="color:var(--blue);text-decoration:none">← Previous</a><a href="../index.html" style="color:var(--navy);text-decoration:none;font-weight:700">All vignettes</a><a href="../6-we-always-come-back/index.html" style="color:var(--blue);text-decoration:none;text-align:right">Next →</a></nav>
+    <footer>Fuller · Alfredo · AI</footer>
+  </main>
+</body>
+</html>

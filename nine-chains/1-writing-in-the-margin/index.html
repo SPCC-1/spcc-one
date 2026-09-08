@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1 — There are no margins</title>
+  <meta name="description" content="The beginning of a reading experiment: a physical book, photographed passages, conversation, and a second book emerging from the margins.">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #666b73;
+      --line: #e3e6eb;
+      --navy: #1f3864;
+      --blue: #1c4189;
+      --gold: #fec62b;
+      --dark-gold: #8a6508;
+      --alfredo: var(--dark-gold);
+      --ai: var(--blue);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 58px 0 90px;
+    }
+
+    .artifact-number,
+    .voice-label,
+    figcaption,
+    footer {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+    }
+
+    .artifact-number {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.25rem, 5.5vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-weight: 700;
+    }
+
+    .deck {
+      max-width: 710px;
+      margin: 28px 0 46px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, .72fr) minmax(0, 1.55fr);
+      gap: 22px;
+      align-items: stretch;
+      margin: 0 0 64px;
+    }
+
+    figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: 100%;
+      max-height: 610px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border: 1px solid rgba(32, 35, 31, .12);
+    }
+
+    .passage img { object-position: center 35%; }
+
+    figcaption {
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.4;
+      text-transform: none;
+    }
+
+    .conversation {
+      display: grid;
+      grid-template-columns: 165px minmax(0, 720px);
+      gap: 34px;
+      justify-content: center;
+      padding: 54px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .voice-label {
+      position: sticky;
+      top: 26px;
+      align-self: start;
+      margin: 5px 0 0;
+      padding-left: 15px;
+      line-height: 1.5;
+    }
+
+    .alfredo .voice-label { border-left: 4px solid var(--alfredo); }
+    .ai .voice-label { border-left: 4px solid var(--ai); }
+
+    .prose p {
+      margin: 0 0 1.2em;
+    }
+
+    .prose p:first-child::first-letter {
+      float: left;
+      margin: .08em .09em 0 0;
+      color: var(--alfredo);
+      font-size: 4.2rem;
+      line-height: .73;
+    }
+
+    .ai {
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    .ai .prose {
+      padding: 30px 34px 18px;
+      background: #fff;
+      border-top: 4px solid var(--gold);
+    }
+
+    .ai .prose p:first-child::first-letter {
+      float: none;
+      margin: 0;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    blockquote {
+      margin: 28px 0 12px;
+      padding: 0 0 0 24px;
+      border-left: 4px solid var(--gold);
+      color: var(--navy);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.42;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--navy);
+      text-align: center;
+      text-transform: none;
+    }
+
+    @media (max-width: 760px) {
+      main { width: min(calc(100% - 28px), var(--max)); padding-top: 34px; }
+      .source-grid { grid-template-columns: 1fr; margin-bottom: 36px; }
+      figure img { max-height: none; height: auto; }
+      .conversation { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+      .voice-label { position: static; }
+      .ai .prose { padding: 24px 22px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="artifact-number">Nine Chains · Vignette 1</p>
+      <h1>There are<br>no margins</h1>
+      <p class="deck">The beginning of a reading experiment between Buckminster Fuller, Alfredo Mathew, and AI—a physical book, photographed passages, and a second book emerging through conversation.</p>
+    </header>
+
+    <section class="source-grid" style="grid-template-columns: 1fr" aria-label="Source image">
+      <figure class="passage">
+        <img style="height:auto; max-height:none; object-fit:contain" src="assets/nine-chains-found-book.jpg" alt="A found copy of R. Buckminster Fuller’s Nine Chains to the Moon held inside a used bookstore">
+        <figcaption>R. Buckminster Fuller · Nine Chains to the Moon · Image 1</figcaption>
+      </figure>
+    </section>
+
+    <section class="conversation alfredo">
+      <h2 class="voice-label">Alfredo<br>Interpretation</h2>
+      <div class="prose">
+        <p>My entire life, reading has been tangible. I do not like reading online. I want to hold a book, underline it, star passages, and write comments in the margins. That makes reading a lived experience.</p>
+        <p>But my favorite way to read may now be hybrid. I still want the physical book. Instead of marking every passage, I can photograph it, bring the image into a conversation, and speak the marginalia aloud. The dialogue becomes a record of the encounter. One book begins turning into another.</p>
+        <p>This journey began over Labor Day weekend in Denton, a college town an hour from home. I went with my family and entered a wonderful recycled bookstore filled with old books, nooks, and crannies.</p>
+        <p>I had Buckminster Fuller on my mind because my friend Alfred Solis had begun a fruitful journey through Fuller’s work. Alfred was collecting it and becoming infatuated with the man. We had both known Fuller through the geodesic dome, and another friend, Paolo Gregory, admired his design principles. I had never felt compelled to read him, but Alfred’s curiosity made me want to join him.</p>
+        <p>The Plano Library had no Fuller book on its shelves, and one was traveling to me. Then, in Denton, I found <em>Nine Chains to the Moon</em>, first published in 1938. Within a day and a half I had read 127 pages. This worn book became the doorway into the experiment.</p>
+      </div>
+    </section>
+
+    <section class="conversation ai">
+      <h2 class="voice-label">AI<br>Synthesis</h2>
+      <div class="prose">
+        <p>This is marginalia transformed from inscription into relationship. A handwritten note fixes one reader’s response beside one passage at one moment. Conversation keeps the response open: it can be questioned, extended, contradicted, and revisited.</p>
+        <p>The physical book remains the originating object. Its weight, wear, typography, and accidental discovery in Denton belong to the meaning. The photograph does not replace that material encounter; it carries a fragment of it across the threshold into dialogue.</p>
+        <p>Three voices now occupy the margin. Fuller speaks from 1938. Alfredo answers from a life shaped by books, teaching, economics, faith, technology, and inheritance. AI listens, reflects, and sometimes introduces a third angle. The resulting text belongs completely to none of them.</p>
+        <p>That is how one book becomes a new book—not through summary, but through encounter. Each photographed passage is a stone. Each reflection makes it possible to step elsewhere. The order may eventually become a path the reader can choose, a form already foreshadowed by Cortázar’s <em>Hopscotch</em>.</p>
+        <blockquote>The margin is no longer empty space around the book.<br><br>It is the place where another book begins.</blockquote>
+      </div>
+    </section>
+
+    <nav aria-label="Vignette navigation" style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:48px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.86rem"><span></span><a href="../index.html" style="color:var(--navy);text-decoration:none;font-weight:700">All vignettes</a><a href="../2-a-depersonalized-instrument/index.html" style="color:var(--blue);text-decoration:none;text-align:right">Next →</a></nav>
+    <footer>Fuller · Alfredo · AI</footer>
+  </main>
+</body>
+</html>
