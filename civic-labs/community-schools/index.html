@@ -57,6 +57,13 @@
     .site-path a:hover,
     .site-path a:focus { text-decoration: underline; }
 
+    .quiet-link {
+      color: inherit;
+      text-decoration-color: rgba(16, 42, 67, .35);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+
     .eyebrow {
       margin: 0 0 12px;
       color: var(--navy);
@@ -593,7 +600,7 @@
 
     <section>
       <p class="eyebrow">Reciprocal verification</p>
-      <h2>The double-entry Community Learning Ledger</h2>
+      <h2>The double-entry <a class="quiet-link" href="community-learner-ledger/">Community Learning Ledger</a></h2>
       <p class="reading">The Community Learning Ledger is the product: a values-aligned, dual-sided record connecting what a learner contributed with what a community received and valued. One side documents the public contribution; the other documents the learning, application, and judgment demonstrated through the work. By asking schools and community partners to recognize the same evidence together, the ledger makes authentic learning visible and gives the resulting credential meaning beyond the classroom.</p>
 
       <div class="ledger" role="group" aria-label="Two corresponding ledger entries for a community learning credential">
