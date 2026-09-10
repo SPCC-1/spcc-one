@@ -57,13 +57,6 @@
     .site-path a:hover,
     .site-path a:focus { text-decoration: underline; }
 
-    .quiet-link {
-      color: inherit;
-      text-decoration-color: rgba(16, 42, 67, .35);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 5px;
-    }
-
     .eyebrow {
       margin: 0 0 12px;
       color: var(--navy);
@@ -373,8 +366,8 @@
 
     .funding-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
       margin-top: 34px;
     }
 
@@ -395,6 +388,51 @@
       margin-bottom: 0;
       color: var(--muted);
     }
+
+    .funding-option small {
+      display: block;
+      margin-bottom: 7px;
+      color: #9a6b08;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .model-bridge {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 30px;
+      background: #f8f3e6;
+      border-left: 4px solid #c28a13;
+    }
+
+    .model-bridge h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .model-bridge p { margin: 0; color: var(--muted); }
+
+    .model-link {
+      display: inline-block;
+      padding: 14px 19px;
+      background: var(--navy);
+      color: var(--white) !important;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .model-link:hover { background: var(--blue); }
 
     .closing {
       margin-top: 38px;
@@ -428,7 +466,7 @@
       body { font-size: 17px; }
       main { width: min(100% - 30px, 940px); padding-top: 42px; }
       section { padding: 46px 0; }
-      .lineage, .opportunity-grid, .two-columns, .ledger, .funding-grid { grid-template-columns: 1fr; }
+      .lineage, .opportunity-grid, .two-columns, .ledger, .funding-grid, .model-bridge { grid-template-columns: 1fr; }
       .gap { padding: 28px 22px; }
       .callout { padding: 20px; font-size: 19px; }
     }
@@ -593,7 +631,7 @@
       </div>
       <div class="reading" style="margin-top:32px">
         <p>But mutual dependence remains abstract until contribution becomes visible. Today, institutions are good at recording enrollment, attendance, grades, services, and transactions; they are much less capable of seeing who helped whom, what knowledge moved between institutions, what public value was created, or how a young person’s work changed a community. When contribution is invisible, people encounter one another as clients, recipients, competitors, or demographic categories—not as capable partners and co-creators.</p>
-        <p><strong>Contribution creates ownership.</strong> When people can see what they contributed, see that others received and valued it, and connect that contribution to a shared outcome, they develop a legitimate stake in the work and in one another. Public demonstration, external validation, and the <a class="quiet-link" href="community-learner-ledger/">Community Learning Ledger</a> make that reciprocal value visible. They allow students, educators, schools, and community partners to recognize themselves as participants in the same civic project.</p>
+        <p><strong>Contribution creates ownership.</strong> When people can see what they contributed, see that others received and valued it, and connect that contribution to a shared outcome, they develop a legitimate stake in the work and in one another. Public demonstration, external validation, and the Community Learning Ledger make that reciprocal value visible. They allow students, educators, schools, and community partners to recognize themselves as participants in the same civic project.</p>
       </div>
       <div class="bridge">We do not build belonging by telling people they matter. We build it by making their contribution consequential, visible, and valued.</div>
     </section>
@@ -632,24 +670,39 @@
 
     <section class="funding">
       <p class="eyebrow">The opportunity</p>
-      <h2>Fund the infrastructure—and deliver it through a real Bronx pilot.</h2>
+      <h2>Build the field, prove the transaction, and create a market that can sustain it.</h2>
       <div class="reading">
-        <p>The opportunity is not another stand-alone curriculum or short-lived fellowship. It is a joint effort to build the Community Learning Ledger as values-aligned civic infrastructure—together with the public-demonstration process, reciprocal credential, community of practice, and distribution system—and prove it through a <a href="https://www.economicdemocracy.co/ED_LAB_Civic_Labs.html" target="_blank" rel="noopener">Civic Lab</a> with Bronx schools and community partners before expanding the model to California.</p>
-        <p><a href="https://ourbronx.org/" target="_blank" rel="noopener">Our Bronx</a> brings organizing history, trusted relationships, place-based knowledge, and direct learning from the fellowship. Schools and CBOs bring young people, educators, and delivery capacity. <a href="https://www.spcc.one/" target="_blank" rel="noopener">SPCC.1</a> brings the <a href="https://www.economicdemocracy.co/" target="_blank" rel="noopener">Economic Democracy Framework</a>, the <a href="https://www.economicdemocracy.co/ED_LAB_Civic_Labs.html" target="_blank" rel="noopener">Civic Lab model</a>, cross-sector design, and emerging ledger architecture. Public agencies, employers, businesses, and philanthropy can provide real questions, expertise, recognition, and capital.</p>
+        <p>The opportunity is not another stand-alone curriculum or short-lived fellowship. Civic Labs + Community Schools are the service: they organize the field, align partners, structure authentic public work, and secure outside validation. The Community Learner Ledger is the product: it records verified contribution and turns it into a portable credential.</p>
+        <p>The work develops across three phases. Philanthropy can provide catalytic capital at the beginning, while government, business, colleges, universities, and philanthropy become paying institutional customers as the model proves its value. The Civic Tax ensures that every paid use compensates contributors, maintains the shared infrastructure, and leaves a permanent asset behind in community.</p>
       </div>
 
       <div class="funding-grid">
         <div class="funding-option">
+          <small>Phase I · Build the field</small>
           <strong>$250K</strong>
-          <p>Build the minimum viable ledger protocol and shared governance model, then deliver an initial Bronx cohort across a small group of schools and partners.</p>
+          <p>Fund field-building, institutional intelligence, partner alignment, protocol design, and a contracted first pilot.</p>
         </div>
         <div class="funding-option">
+          <small>Phase II · Prove the transaction</small>
           <strong>$500K</strong>
-          <p>Operate multiple Civic Labs, develop the shared ledger and reciprocal credential, support the community of practice, evaluate the model, and prepare it for replication.</p>
+          <p>Deliver the first Civic Labs, complete independently validated transactions, issue credentials, and demonstrate willingness to pay.</p>
+        </div>
+        <div class="funding-option">
+          <small>Phase III · Build the market</small>
+          <strong>$2M</strong>
+          <p>Expand to multiple sites, establish institutional purchasing channels, license the ledger, and activate the regenerative Civic Tax loop.</p>
         </div>
       </div>
 
-      <div class="closing">The Bronx fellowship established the foundation. Community Schools provide the institutional opening. The next step is to prove the infrastructure through a Civic Lab with Bronx schools and community partners—making learning authentic, contribution visible, and the credential meaningful—then expand the model through California’s funded Community Schools system.</div>
+      <div class="model-bridge">
+        <div>
+          <h3>See how the model becomes regenerative.</h3>
+          <p>Explore the nine funding milestones, phase budgets, revenue mix, Civic Tax, four-P ledger, and prospective partners.</p>
+        </div>
+        <a class="model-link" href="business-model/">Explore the business model →</a>
+      </div>
+
+      <div class="closing">The Bronx fellowship established the foundation. Community Schools provide the institutional opening. The next step is to build the field, prove one complete transaction, and establish a market in which every institution that benefits from community knowledge, participation, authenticity, and legitimacy helps pay for the infrastructure that produces it.</div>
 
       <div class="sources">Working sources: <em>Economic Democracy Fellowship Case Study Report</em>; Thomas Schnaubelt, Karina Kloos, and Connor Begovich, <em>The American Civic Education Ecosystem: A Landscape Analysis</em>; September 2026 correspondence with Evan Casper-Futterman; <em>Deeper Learning and the Civic School</em>; Economic Democracy Civic Labs.</div>
     </section>
