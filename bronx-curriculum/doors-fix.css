@@ -1,0 +1,1 @@
+.journey-card .number{position:absolute;top:28px;right:28px;z-index:1}.journey-card>div:not(.number){grid-column:2;grid-row:1 / span 3}.journey-card .tag{display:block}.journey-card h3{margin-top:28px}@media(max-width:600px){.journey-card .number{top:18px;right:18px}.journey-card>div:not(.number){display:block}}

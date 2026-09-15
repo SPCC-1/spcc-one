@@ -1,0 +1,12 @@
+.unit-hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:75px;align-items:center}.bronx-map{margin:0;background:#dce5df;padding:14px 14px 11px;transform:rotate(1deg)}.bronx-map img{display:block;width:100%;height:420px;object-fit:contain;background:#fff}.bronx-map figcaption{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#28523e;padding:12px 3px 0}.unit-arc{background:#28523e}
+.unit-arc .frame-title{color:#f6c0ab}
+.unit-arc .voices-title{color:#fff3eb}
+.sequence-intro{display:flex;align-items:baseline;justify-content:space-between;gap:30px;margin-top:76px}.sequence-intro p:last-child{color:#dce8df;margin:0;font-size:17px}.sequence-intro .kicker{margin:0}
+.unit-arc .unit-arc-head>p{color:#dce8df}
+.unit-arc .story-steps{border-color:#6f927b}
+.unit-arc .story-steps small{color:#dce8df}
+.sequence-list{display:flex;flex-direction:column;gap:10px;border:0;margin-top:22px}.sequence-list article,.sequence-list article:not(:first-child){display:grid;grid-template-columns:185px 1fr;gap:28px;align-items:center;border:1px solid #6f927b;padding:14px 18px 14px 14px;cursor:pointer;transition:background .2s,color .2s,transform .2s}.sequence-list article:hover,.sequence-list article:focus,.sequence-list article.active{background:#f6c0ab;color:#20352b;outline:none;transform:translateX(6px)}.sequence-list article.active span,.sequence-list article:hover span,.sequence-list article:focus span{color:#20352b}.sequence-list article.active p,.sequence-list article:hover p,.sequence-list article:focus p{color:#304b3d}.sequence-list article:focus-visible{box-shadow:0 0 0 3px #fff inset}.sequence-image{height:112px;overflow:hidden;background:#dce5df}.sequence-image img{display:block;width:100%;height:100%;object-fit:cover}.sequence-list h3{margin:17px 0 8px}.sequence-list p{padding-right:20px}
+.resource-section{scroll-margin-top:30px}
+.resource-grid a{display:block}
+@media(max-width:900px){.unit-hero-grid{grid-template-columns:1fr;gap:35px}.bronx-map img{height:390px}.sequence-list article,.sequence-list article:not(:first-child){grid-template-columns:140px 1fr;gap:20px}}
+@media(max-width:600px){.sequence-intro{display:block}.sequence-intro p:last-child{margin-top:8px}.sequence-list article,.sequence-list article:not(:first-child){grid-template-columns:1fr;gap:12px}.sequence-image{height:180px}.sequence-list h3{margin-top:12px}}

@@ -1,0 +1,1 @@
+.journey-card.story-door{cursor:pointer}.journey-card.story-door:after{content:'Open this chapter →';display:inline-block;grid-column:2;color:var(--orange);font:500 11px var(--mono);margin-top:18px}.journey-card.story-door:focus-visible{outline:3px solid var(--orange);outline-offset:4px}@media(max-width:600px){.journey-card.story-door:after{display:block}}
