@@ -93,7 +93,7 @@
     main {
       width: 100%;
       margin: 0;
-      padding: 0 0 88px;
+      padding: 0;
     }
 
     header {
@@ -642,9 +642,17 @@
 
     .map-details { margin-top: 24px; }
     .map-details .market-detail-panel {
-      border-color: var(--sky);
+      border-color: var(--navy);
       border-top-width: 6px;
-      background: var(--sky);
+      background: var(--white);
+    }
+
+    .map-details .market-detail-panel h3 {
+      color: var(--navy);
+    }
+
+    .map-details .market-detail-panel p {
+      color: var(--ink);
     }
 
     .source-links {
@@ -726,20 +734,24 @@
 
     .gap-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 42px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(32px, 5vw, 72px);
       align-items: start;
     }
 
     .gap-report {
       margin: 0;
+      width: 100%;
     }
 
     .gap-report img {
       display: block;
       width: 100%;
+      height: auto;
       border: 8px solid var(--white);
       box-shadow: 0 16px 34px rgba(8,22,47,.28);
+      object-fit: contain;
+      object-position: top center;
     }
 
     .gap-report figcaption {
@@ -763,6 +775,91 @@
     .simple-system-card h3 { margin: 0 0 12px; color: var(--navy); font: 400 27px/1.12 Georgia, "Times New Roman", serif; }
     .simple-system-card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
     .simple-system-close { max-width: 820px; margin: 30px 0 0; color: var(--navy); font: 400 24px/1.35 Georgia, "Times New Roman", serif; }
+
+    .methodology {
+      padding: 72px 42px;
+      background: var(--warm);
+    }
+
+    .methodology h2 { max-width: 1050px; color: var(--navy); }
+    .methodology-intro { max-width: 900px; color: var(--muted); font-size: 21px; line-height: 1.55; }
+    .methodology-intro strong { color: var(--navy); }
+    .methodology-description { max-width: 900px; margin-top: 8px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .methodology-card { min-height: 235px; padding: 26px; border: 1px solid var(--line); border-top: 5px solid var(--sky); background: var(--white); }
+    .methodology-card:nth-child(2) { border-top-color: var(--gold); }
+    .methodology-card:nth-child(3) { border-top-color: var(--coral); }
+    .methodology-card .cycle-preview-number { margin-bottom: 12px; }
+    .methodology-card h3 { margin: 0 0 14px; color: var(--navy); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .methodology-card p:last-child { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+
+    .capacity-accordion {
+      min-height: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .capacity-accordion:nth-child(2),
+    .capacity-accordion:nth-child(3) { border-top-color: var(--line); }
+    .capacity-accordion summary {
+      display: block;
+      padding: 26px;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+    }
+    .capacity-accordion summary::-webkit-details-marker { display: none; }
+    .capacity-accordion summary::after {
+      float: right;
+      color: var(--gold);
+      content: "+";
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .capacity-accordion[open] summary::after { content: "−"; }
+    .capacity-accordion .capacity-number { display: inline; margin-right: 8px; color: var(--navy); font-size: 28px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+    .capacity-accordion .capacity-term { display: inline; margin-bottom: 8px; font: 400 38px/1.05 Georgia, "Times New Roman", serif; }
+    .capacity-accordion .capacity-phrase { display: block; max-width: 260px; color: var(--muted); font-size: 18px; line-height: 1.35; }
+    .capacity-accordion-body { padding: 0 26px 26px; border-top: 1px solid var(--line); }
+    .capacity-accordion-body p { margin: 18px 0 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+    .infrastructure-section {
+      padding: 72px 42px;
+      background: var(--paper);
+    }
+
+    .infrastructure-section h2 { max-width: 1050px; color: var(--navy); }
+    .infrastructure-intro { max-width: 900px; color: var(--muted); font-size: 21px; line-height: 1.55; }
+    .infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .infrastructure-card { display: flex; min-height: 285px; padding: 26px; flex-direction: column; border: 1px solid var(--line); border-top: 5px solid var(--navy); background: var(--white); }
+    .infrastructure-card:nth-child(2) { border-top-color: var(--gold); }
+    .infrastructure-card:nth-child(3) { border-top-color: var(--coral); }
+    .infrastructure-card .cycle-preview-number { margin-bottom: 12px; }
+    .infrastructure-card h3 { margin: 0 0 14px; color: var(--navy); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .infrastructure-card p { margin: 0 0 16px; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .infrastructure-card p:last-child { margin-top: auto; margin-bottom: 0; color: var(--navy); font-weight: 700; }
+
+    .build-section {
+      padding: 72px 42px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    section.build-section > .eyebrow { color: var(--sky); }
+    .build-section h2 { max-width: 900px; color: var(--white); }
+    .build-intro { max-width: 820px; color: rgba(255,255,255,.82); font-size: 20px; line-height: 1.55; }
+    .build-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 390px); gap: 42px; align-items: center; }
+    .build-card { display: flex; min-height: 266px; padding: 26px; flex-direction: column; border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.08); }
+    .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.5; }
+    .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
+    .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .build-card { display: flex; min-height: 220px; padding: 24px; flex-direction: column; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+    .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 28px/1.12 Georgia, "Times New Roman", serif; }
+    .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.5; }
+    .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
 
     .cycle-preview {
       margin-top: 48px;
@@ -792,8 +889,9 @@
 
     .cycle-preview-card img {
       display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1;
+      width: min(100%, 500px);
+      margin: 0 auto 18px;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
     }
 
@@ -805,10 +903,11 @@
     .cycle-carousel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; }
     .cycle-carousel-viewport { min-width: 0; overflow: hidden; }
     .cycle-preview-grid { display: flex; gap: 0; transition: transform .45s ease; }
-    .cycle-preview-card { flex: 0 0 100%; min-width: 0; }
+    .cycle-preview-card { display: flex; flex-direction: column; width: min(100%, 640px); margin: 0 auto; flex: 0 0 100%; min-width: 0; }
+    .cycle-preview-body { display: block; padding: 18px 18px 20px; }
+    .cycle-preview-card img { width: 100%; }
     .cycle-carousel-button { width: 46px; height: 46px; border: 1px solid var(--navy); border-radius: 50%; background: var(--white); color: var(--navy); cursor: pointer; font-size: 25px; line-height: 1; }
     .cycle-carousel-button:hover, .cycle-carousel-button:focus-visible { background: var(--navy); color: var(--white); }
-    .cycle-carousel-status { margin: 14px 0 0; color: var(--muted); font-size: 13px; text-align: center; }
     @media (max-width: 620px) { .cycle-carousel { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; } .cycle-carousel-button { width: 38px; height: 38px; font-size: 21px; } }
 
     .gap h2 { color: var(--white); }
@@ -1302,10 +1401,18 @@
     }
 
     .site-footer p {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
       max-width: none;
       margin: 0;
       font-size: 14px;
     }
+
+    .site-footer .footer-brand { justify-self: start; }
+    .site-footer .footer-sites { justify-self: center; text-align: center; }
+    .site-footer .footer-copyright { justify-self: end; text-align: right; }
 
     .site-footer a {
       color: var(--white);
@@ -1425,6 +1532,10 @@
       section { padding-top: 46px; padding-bottom: 46px; }
       .lineage, .two-columns, .ledger, .funding-grid, .model-bridge, .exemplar-grid, .difference-section, .tension-grid, .gap-layout { grid-template-columns: 1fr; }
       .simple-system-grid { grid-template-columns: 1fr; }
+      .methodology-grid { grid-template-columns: 1fr; }
+      .infrastructure-grid { grid-template-columns: 1fr; }
+      .build-grid { grid-template-columns: 1fr; }
+      .build-layout { grid-template-columns: 1fr; gap: 28px; }
       .cycle-preview-grid { grid-template-columns: 1fr; }
       .tension-grid { gap: 4px; }
       .lineage-stop summary { font-size: 20px; }
@@ -1447,6 +1558,8 @@
       .infrastructure-equation { grid-template-columns: 1fr; }
       .equation-mark { line-height: 0.8; }
       .ownership-line { grid-template-columns: 1fr; }
+      .site-footer p { grid-template-columns: 1fr; gap: 10px; }
+      .site-footer .footer-brand, .site-footer .footer-sites, .site-footer .footer-copyright { justify-self: start; text-align: left; }
       .invitation { padding: 30px 22px; }
       .callout { padding: 20px; font-size: 19px; }
       .national-footprint { padding: 22px 12px; overflow-x: auto; }
@@ -1468,7 +1581,6 @@
   <main>
     <header id="top">
       <p class="site-path">Civic Labs / Community Schools</p>
-      <p class="eyebrow">Civic Labs + Community Schools</p>
       <h1>Turn Community Schools into Civic Infrastructure.</h1>
       <p class="lede">Community Schools already connect young people with educators, families, community organizations, and neighborhood resources. Civic Labs use the platform we already have to turn those relationships into rigorous learning, useful public work, and valuable community assets.</p>
       <div class="hero-actions">
@@ -1509,17 +1621,17 @@
         <button class="cycle-carousel-button" type="button" data-carousel-prev aria-label="Previous step">‹</button>
         <div class="cycle-carousel-viewport">
           <div class="cycle-preview-grid" data-carousel-track>
-          <article class="cycle-preview-card"><img src="assets/mamdani-public-grocery-stores.png" alt="Editorial cartoon of Mayor Mamdani announcing $70M for public grocery stores in New York City."><div class="cycle-preview-body"><p class="cycle-preview-number">00 · Start with the public issue</p><h4>Mamdani announces $70M for public grocery stores</h4><p>New York City makes a public investment to address food affordability. Students begin by asking what the investment should make possible—and who it should serve.</p></div></article>          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v3.png" alt="Illustrated Hunts Point street with elevated subway tracks, brick buildings, and a basketball court."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Begin with place</p><h4>Notice the place</h4><p>Students look closely at the neighborhood, its histories, and the conditions shaping how families find and afford food.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/02-ask-better-questions-v3.png" alt="Illustrated student writing questions at a plain classroom table beside a grocery receipt."><div class="cycle-preview-body"><p class="cycle-preview-number">02 · Name the issue</p><h4>Ask better questions</h4><p>They identify what is missing from familiar stories and ask how power, ownership, investment, and public choices shape affordability.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/03-listen-and-gather-evidence-final.png" alt="Illustrated student interviewing a bodega owner wearing a Yankees hat inside a New York City bodega."><div class="cycle-preview-body"><p class="cycle-preview-number">03 · Gather evidence</p><h4>Listen and gather evidence</h4><p>Students listen to residents and organizations, study local data, and treat lived experience as essential evidence.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/04-make-sense-together-final.png" alt="Three illustrated students studying a map in a school classroom."><div class="cycle-preview-body"><p class="cycle-preview-number">04 · Do the work</p><h4>Make sense together</h4><p>They compare perspectives, test assumptions, weigh tradeoffs, and decide what the evidence supports.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/05-create-a-public-response-final.png" alt="Illustrated student presenting an affordable-grocery recommendation to New York City stakeholders in suits."><div class="cycle-preview-body"><p class="cycle-preview-number">05 · Make it public</p><h4>Create a public response</h4><p>Students translate their learning into a recommendation, design, report, map, story, tool, or proposal.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/06-return-value-to-the-community-final.png" alt="Illustrated Hunts Point street with elevated subway tracks and a neighborhood grocery store displaying fresh fruit and vegetables."><div class="cycle-preview-body"><p class="cycle-preview-number">06 · Create value</p><h4>Return value to the community</h4><p>They share a useful contribution and leave knowledge that the next learner, partner, or decision-maker can build upon.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/mamdani-public-grocery-stores.png" alt="Editorial cartoon of Mayor Mamdani announcing $70M for public grocery stores in New York City."><div class="cycle-preview-body"><p class="cycle-preview-number">00 · Start with the public issue</p><p>New York City has committed $70 million to public grocery stores as a response to food affordability. Students begin by asking what this investment should make possible, who it should serve, and how residents should help shape the decisions that follow.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v4.png" alt="Three high-school students walking together on a Hunts Point block beneath elevated subway tracks."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Begin with community</p><p>Students study Hunts Point as it exists—not as an abstract food-access problem. They walk the neighborhood, document stores and transit routes, examine prices and availability, and learn from residents, families, bodega owners, and small-business owners about how people actually find and afford food.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/02-ask-better-questions-v5.png" alt="High-school student looking at the Civic Lab Food Affordability website on a computer screen."><div class="cycle-preview-body"><p class="cycle-preview-number">02 · Ask better questions</p><p>Students turn what they observe into an investigation. They ask how public investment, land, ownership, transportation, wages, pricing, and neighborhood power shape food affordability—and what questions city planners, store operators, and community organizations need to answer.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/03-listen-and-gather-evidence-v4.png" alt="Three high-school students talking with a bodega owner inside a Bronx bodega."><div class="cycle-preview-body"><p class="cycle-preview-number">03 · Listen and gather evidence</p><p>Students conduct participatory research with people closest to the issue. They interview bodega owners and small-business owners, meet with city officials and other stakeholders, study data and policy, compare perspectives, and treat lived experience as essential evidence—not merely as anecdote.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/04-make-sense-together-v5.png" alt="Three high-school students making sense of a map together in a classroom."><div class="cycle-preview-body"><p class="cycle-preview-number">04 · Make sense together</p><p>Students bring their findings back to the community and work across differences to interpret them. Together, they test assumptions, identify tradeoffs, distinguish what is known from what remains uncertain, and develop conclusions rigorous enough to guide public decisions.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/05-create-a-public-response-v7.png" alt="High-school student presenting a public response to New York City stakeholders, with subtle distinct earrings among the women in the room."><div class="cycle-preview-body"><p class="cycle-preview-number">05 · Create a public response</p><p>Students present their findings to stakeholders with the authority to act, including city agencies, public officials, community organizations, and potential operators or investors. They create a usable artifact—a recommendation, map, business model, design, report, or decision framework—that others can use to make consequential choices.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/06-return-value-to-the-community-v5.png" alt="Three high-school students shopping for food in a Bronx grocery store during its Grand Opening."><div class="cycle-preview-body"><p class="cycle-preview-number">06 · Return value to the community</p><p>Public and private investments should be shaped by the evidence and contributions of the communities involved. The result should grow community assets and leave behind knowledge, tools, relationships, or institutions that remain useful after the project ends.</p></div></article>
           </div>
         </div>
         <button class="cycle-carousel-button" type="button" data-carousel-next aria-label="Next step">›</button>
       </div>
-      <p class="cycle-carousel-status" data-carousel-status>Step 1 of 7 · Public issue</p>
     </div>
     </section>
 
@@ -1534,6 +1646,7 @@
         <div class="footprint-stats">
           <div class="footprint-stat"><strong>419</strong><b>New York City schools</b><span>in an established citywide delivery network</span></div>
           <div class="footprint-stat"><strong>$4.1B</strong><b>California commitment</b><span>to statewide Community School implementation</span></div>
+          <div class="footprint-stat"><strong>38</strong><b>states and territories</b><span>with federal Full-Service Community Schools grants awarded, 2008–2023</span></div>
         </div>
         <div class="tile-map" role="group" aria-label="Tile map of community-school activity, with New York and California highlighted as priority markets.">
           <span class="state-tile" style="grid-column:12;grid-row:1">ME</span>
@@ -1545,7 +1658,7 @@
           <span class="state-tile active" style="grid-column:4;grid-row:7">OK</span><span class="state-tile active" style="grid-column:5;grid-row:7">LA</span><span class="state-tile" style="grid-column:6;grid-row:7">MS</span><span class="state-tile active" style="grid-column:7;grid-row:7">AL</span><span class="state-tile active" style="grid-column:8;grid-row:7">GA</span>
           <span class="state-tile" style="grid-column:1;grid-row:8">HI</span><span class="state-tile active" style="grid-column:2;grid-row:8">AK</span><span class="state-tile active" style="grid-column:4;grid-row:8">TX</span><span class="state-tile active" style="grid-column:9;grid-row:8">FL</span><span class="state-tile active" style="grid-column:12;grid-row:8">PR</span>
         </div>
-        <div class="map-legend"><span class="legend-key">Community-school activity</span><span class="legend-key priority">Select New York or California</span></div>
+        <div class="map-legend"><span class="legend-key">Community-school activity</span><span class="legend-key priority">Click New York or California to learn more</span></div>
         <div class="map-details" aria-live="polite">
           <p class="market-bridge">The opportunities to begin inside two of the country’s most developed Community School systems.</p>
           <div class="market-detail-panel" id="market-detail-nyc" data-panel="nyc" hidden>
@@ -1587,110 +1700,48 @@
       </div>
     </section>
 
-    <section class="simple-system">
-      <p class="eyebrow">What Civic Labs connect</p>
-      <h2>Three things make the work useful and lasting.</h2>
-      <p class="simple-system-intro">Civic Labs move from an issue, to shared work, to value that remains useful and lasting.</p>
-      <div class="simple-system-grid">
-        <article class="simple-system-card"><p class="cycle-preview-number">01 · Issue</p><h3>Real community work and authority</h3><p>Communities identify the issue. Young people and educators investigate it with the people closest to it and help shape what happens next.</p></article>
-        <article class="simple-system-card"><p class="cycle-preview-number">02 · Work</p><h3>Shared public infrastructure</h3><p>Schools, universities, communities, philanthropy, and public institutions bring their resources and commitments to the same public work.</p></article>
-        <article class="simple-system-card"><p class="cycle-preview-number">03 · Value</p><h3>Visible, reusable evidence and assets</h3><p>The work produces evidence, recommendations, tools, stories, and other assets that can be recognized, used, and built upon.</p></article>
-      </div>
-      <p class="simple-system-close">Civic Labs connect shared infrastructure, real community authority, and visible, reusable evidence and assets.</p>
-    </section>
-
-    <section hidden>
-      <p class="eyebrow">The product · The Community Learning Ledger</p>
-      <h2>Turn contribution into an asset that people can own, communities can retain, and institutions can trust.</h2>
-      <p class="reading">Schools already know how to record courses, grades, attendance, and individual achievement. They do not yet have a shared way to produce and verify a community asset—to establish what was created, who created it, which institution received it, whether it met a meaningful standard, what public value it produced, who owns it, and how others may build upon it. The <a href="community-learner-ledger/">Community Learning Ledger</a> supplies that missing infrastructure. It records the same verified contribution twice: as tangible evidence in the learner’s journey and as a durable asset in the community’s growing body of knowledge.</p>
-
-      <div class="infrastructure-equation" aria-label="The Civic Method plus the Community Learning Ledger equals civic infrastructure">
-        <span>The Civic Method</span><span class="equation-mark">+</span><span>Community Learning Ledger</span><span class="equation-mark">=</span><span>Civic infrastructure</span>
-      </div>
-
-      <div class="ledger" role="group" aria-label="Schools and young people connected with community through shared evidence">
-        <div class="ledger-entry">
-          <div class="label">One connected side</div>
-          <h3>What schools and young people bring</h3>
-          <ul>
-            <li>Lived experience, curiosity, creativity, and agency</li>
-            <li>Teachers, learning time, standards, and developmental support</li>
-            <li>Research, analysis, design, and public communication</li>
-            <li>Evidence of learning and a pathway to academic recognition</li>
-          </ul>
-        </div>
-        <div class="ledger-connection" aria-hidden="true"><span>Shared evidence</span></div>
-        <div class="ledger-entry">
-          <div class="label">The other connected side</div>
-          <h3>What community brings</h3>
-          <ul>
-            <li>Consequential questions and real public stakes</li>
-            <li>History, relationships, lived knowledge, and local expertise</li>
-            <li>A receiving institution committed to hearing and considering the work</li>
-            <li>External judgment of rigor, quality, usefulness, and public value</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="commonwealth">
-        <h3>A ledger of community assets—a commonwealth of knowledge</h3>
-        <p>Every verified contribution adds more than a credential. Research, recommendations, datasets, oral histories, designs, tools, and other public work enter the ledger as community-owned assets with visible provenance, standards, permissions, and institutional verification. Instead of disappearing at the end of a course or presentation, the work remains findable and usable. Over time, the ledger becomes a cumulative knowledge commons: a record of what a community knows, what its people have made, what value others recognized in it, and how the next person or institution can build upon it.</p>
-        <div class="ownership-line">
-          <p><strong>The learner owns the portable record:</strong> durable evidence of authorship, capability, judgment, and contribution that can travel across schools, colleges, work, and civic life.</p>
-          <p><strong>The community retains the public asset:</strong> useful knowledge and tools remain accessible to the people whose questions and experience made the work possible.</p>
-        </div>
+    <section class="methodology">
+      <p class="eyebrow">What Civic Labs add to Community Schools</p>
+      <p class="methodology-intro"><strong>Growing the shared capacity of our public institutions.</strong></p>
+      <p class="methodology-description">Civic Labs turn a consequential community issue into organized work and a lasting public asset.</p>
+      <div class="methodology-grid">
+        <details class="capacity-accordion">
+          <summary><span class="capacity-number">01 ·</span><span class="capacity-term">Issue</span><span class="capacity-phrase">Grounded in the community</span></summary>
+          <div class="capacity-accordion-body"><p>A Civic Lab begins with a consequential public issue identified with the people and institutions closest to it. Students and educators study the place as it exists, listening to residents, families, community organizations, workers, and local institutions.</p><p>The issue gives the work direction. It establishes why the learning matters, who should be involved, what evidence is needed, and what kind of public response could be useful.</p></div>
+        </details>
+        <details class="capacity-accordion">
+          <summary><span class="capacity-number">02 ·</span><span class="capacity-term">Work</span><span class="capacity-phrase">Aligning the ecosystem</span></summary>
+          <div class="capacity-accordion-body"><p>The work brings students, educators, community partners, higher-education participants, public agencies, businesses, and other stakeholders together around a shared investigation.</p><p>Participants gather and interpret evidence, deliberate across differences, test assumptions, and produce something tangible: a recommendation, map, report, design, business model, policy framework, dataset, story, or other public artifact that an institution or community can use.</p></div>
+        </details>
+        <details class="capacity-accordion">
+          <summary><span class="capacity-number">03 ·</span><span class="capacity-term">Value</span><span class="capacity-phrase">Make the contribution count</span></summary>
+          <div class="capacity-accordion-body"><p>Value begins when the work is made public and taken seriously. Students demonstrate what they learned and defend the quality of their findings before stakeholders with the authority to respond.</p><p>The contribution is recorded—who created it, what evidence supports it, how it was evaluated, which community and institution received it, and what public value it produced. The result is durable evidence for the learner, a reusable asset for the community, and the possibility of institutional change.</p></div>
+        </details>
       </div>
     </section>
 
-    <section class="funding" id="the-ask">
-      <p class="eyebrow">The first demonstration · $375K</p>
-      <h2>Build one complete Civic Lab with a community-school network.</h2>
-      <div class="reading">
-        <p>The first demonstration brings a Community School, young people and educators, community partners, and an identified institution around one consequential social issue. Together, they complete the full Civic Method and record the resulting evidence, recommendation, and community asset in the Community Learning Ledger.</p>
-        <p>The $375K demonstration is designed to show the whole system working in one place: not a stand-alone curriculum or short-lived fellowship, but a repeatable way for a community to turn an urgent issue into rigorous learning, a verified contribution, and knowledge that remains available for the next person to build upon.</p>
+    <section class="infrastructure-section">
+      <p class="eyebrow">From contribution to infrastructure</p>
+      <h2>From verified contribution to civic infrastructure.</h2>
+      <p class="infrastructure-intro">Civic Labs produce verified contribution. The product makes it ownable, usable, and cumulative. Institutional adoption turns community assets into civic infrastructure.</p>
+      <div class="infrastructure-grid">
+        <article class="infrastructure-card"><p class="cycle-preview-number">01 · Service</p><h3>Civic Labs + Community Schools</h3><p><strong>The connective tissue between grassroots work and institutions.</strong></p><p>Civic Labs coordinate the relationships, facilitation, and delivery that carry community knowledge and local work into schools, public agencies, higher education, businesses, philanthropy, and other institutions.</p><p>The service brings the right people together, supports the work, and carries the resulting contribution to an institution prepared to recognize and use it.</p><p>Produces: a verified contribution.</p></article>
+        <article class="infrastructure-card"><p class="cycle-preview-number">02 · Product</p><h3>Community Learning Ledger</h3><p><strong>A protocol and platform for recording contribution.</strong></p><p>The Ledger records what was created, who contributed, what evidence supports it, how the work was evaluated, which community and institution received it, and what permissions govern its use.</p><p>The product makes a verified contribution ownable by the learner, usable by institutions and communities, and cumulative across projects, places, and time.</p><p>Produces: a portable record and durable community asset.</p></article>
+        <article class="infrastructure-card"><p class="cycle-preview-number">03 · Market</p><h3>Institutional adoption</h3><p><strong>The people and institutions that pay for and legitimize the infrastructure.</strong></p><p>Government, higher education, business, philanthropy, schools, and other institutions pay for the infrastructure and knowledge they use.</p><p>They provide legitimacy by receiving the work, validating its quality, using it in real decisions, and investing in the assets communities create. Adoption gives those assets standing beyond the original project and creates demand for the next cycle.</p><p>Creates: the conditions under which community assets become civic infrastructure.</p></article>
       </div>
-
-      <div class="funding-grid">
-        <div class="funding-option">
-          <small>Begin with the community</small>
-          <strong>Issue</strong>
-          <p>Name a consequential social issue with the people and institutions already closest to it.</p>
-        </div>
-        <div class="funding-option">
-          <small>Organize the Civic Lab</small>
-          <strong>Work</strong>
-          <p>Support young people, educators, and partners to investigate evidence and create something an institution can implement.</p>
-        </div>
-        <div class="funding-option">
-          <small>Leave an asset behind</small>
-          <strong>Value</strong>
-          <p>Validate the contribution, recognize the learner, and document the result as community knowledge others can build upon.</p>
-        </div>
-      </div>
-
-      <div class="model-bridge">
-        <div>
-          <h3>For philanthropy and implementation partners</h3>
-          <p>The companion business-model page shows how catalytic support for the first demonstration develops into sustained, regenerative infrastructure.</p>
-        </div>
-        <a class="model-link" href="business-model/index.html">See how the infrastructure is sustained →</a>
-      </div>
-
     </section>
 
-    <section class="invitation" id="build-with-us">
+    <section class="build-section">
       <p class="eyebrow">Build with us</p>
-      <h2>What can we create together?</h2>
-      <p>We are looking for communities, schools, and philanthropic partners ready to organize one consequential public issue into rigorous learning and a lasting community asset. You might bring the issue, the site, the young people and educators, an authentic public audience, independent validation, or the catalytic support that makes the first demonstration possible.</p>
-      <div class="participant-list" aria-label="Intended participants">
-        <span>Young people</span><span>Educators</span><span>Community Schools</span><span>Community organizations</span><span>Public agencies</span><span>Colleges and universities</span><span>Employers</span><span>Philanthropy</span>
+      <div class="build-layout">
+        <div><h2>What can we create together?</h2><p class="build-intro">We are already doing the groundwork of organizing the first Civic Lab in New York City. We are looking for the right philanthropic partners and field builders to help us turn this local demonstration into shared capacity that can build the field.</p></div>
+        <article class="build-card"><h3>For philanthropy and field builders</h3><p>Strengthen the capacity connecting Community Schools, civic learning, universities, and communities.</p><a href="business-model/index.html">Explore the philanthropy and field-builders opportunity →</a></article>
       </div>
-      <a class="cta-link" href="mailto:alfredo@spcc.one?subject=Civic%20Labs%20demonstration">Start a conversation →</a>
     </section>
 
   </main>
   <footer class="site-footer">
-    <p>Civic Labs turns consequential public questions into rigorous learning, useful public work, and community-owned knowledge — explore <a href="https://www.economicdemocracy.co/" target="_blank" rel="noopener">Economic Democracy</a>, <a href="https://covenantos.co/" target="_blank" rel="noopener">Covenant OS</a>, and <a href="https://www.spcc.one/" target="_blank" rel="noopener">SPCC.1</a>.</p>
+    <p><span class="footer-brand"><strong>Shared Prosperity Community Corporation ONE</strong></span><span class="footer-sites"><a href="https://www.spcc.one/">SPCC.1</a> · <a href="#top">Civic Labs</a> · <a href="https://www.economicdemocracy.co/">Economic Democracy</a> · <a href="https://covenantos.co/">Covenant OS</a></span><span class="footer-copyright">© 2026 SPCC.1. All rights reserved.</span></p>
   </footer>
   <script>
     const carouselTrack = document.querySelector('[data-carousel-track]');
@@ -1705,6 +1756,25 @@
     };
     document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { carouselIndex = (carouselIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
     document.querySelector('[data-carousel-next]')?.addEventListener('click', () => { carouselIndex = (carouselIndex + 1) % carouselCards.length; updateCarousel(); });
+    const gapLayout = document.querySelector('.gap-layout');
+    const gapReport = gapLayout?.querySelector('.gap-report');
+    const gapReportImage = gapReport?.querySelector('img');
+    const gapReportCaption = gapReport?.querySelector('figcaption');
+    const syncGapReport = () => {
+      if (!gapLayout || !gapReportImage || !gapReportCaption) return;
+      if (window.matchMedia('(max-width: 620px)').matches) {
+        gapReportImage.style.height = 'auto';
+        return;
+      }
+      const leftHeight = gapLayout.firstElementChild.getBoundingClientRect().height;
+      const captionHeight = gapReportCaption.getBoundingClientRect().height;
+      gapReportImage.style.height = Math.max(240, leftHeight - captionHeight - 12) + 'px';
+    };
+    if (gapReportImage) {
+      gapReportImage.addEventListener('load', syncGapReport);
+      window.addEventListener('resize', syncGapReport);
+      requestAnimationFrame(syncGapReport);
+    }
     const marketTabs = Array.from(document.querySelectorAll('.state-tile-button'));
     const marketPanels = Array.from(document.querySelectorAll('.market-detail-panel'));
 
@@ -1726,4 +1796,3 @@
   </script>
 </body>
 </html>
-
