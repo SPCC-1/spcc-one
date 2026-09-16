@@ -802,6 +802,15 @@
     .cycle-preview-card h4 { margin: 0 0 8px; color: var(--navy); font: 400 23px/1.1 Georgia, "Times New Roman", serif; }
     .cycle-preview-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
 
+    .cycle-carousel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; }
+    .cycle-carousel-viewport { min-width: 0; overflow: hidden; }
+    .cycle-preview-grid { display: flex; gap: 0; transition: transform .45s ease; }
+    .cycle-preview-card { flex: 0 0 100%; min-width: 0; }
+    .cycle-carousel-button { width: 46px; height: 46px; border: 1px solid var(--navy); border-radius: 50%; background: var(--white); color: var(--navy); cursor: pointer; font-size: 25px; line-height: 1; }
+    .cycle-carousel-button:hover, .cycle-carousel-button:focus-visible { background: var(--navy); color: var(--white); }
+    .cycle-carousel-status { margin: 14px 0 0; color: var(--muted); font-size: 13px; text-align: center; }
+    @media (max-width: 620px) { .cycle-carousel { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; } .cycle-carousel-button { width: 38px; height: 38px; font-size: 21px; } }
+
     .gap h2 { color: var(--white); }
 
     .gap .eyebrow,
@@ -1496,15 +1505,22 @@
 
       <div class="cycle-preview">
         <h3>Food affordability, step by step</h3>
-        <div class="cycle-preview-grid">
-          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v3.png" alt="Illustrated Hunts Point street with elevated subway tracks, brick buildings, and a basketball court."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Begin with place</p><h4>Notice the place</h4><p>Students look closely at the neighborhood, its histories, and the conditions shaping how families find and afford food.</p></div></article>
+        <div class="cycle-carousel" aria-label="Food affordability journey">
+        <button class="cycle-carousel-button" type="button" data-carousel-prev aria-label="Previous step">‹</button>
+        <div class="cycle-carousel-viewport">
+          <div class="cycle-preview-grid" data-carousel-track>
+          <article class="cycle-preview-card"><img src="assets/mamdani-public-grocery-stores.png" alt="Editorial cartoon of Mayor Mamdani announcing $70M for public grocery stores in New York City."><div class="cycle-preview-body"><p class="cycle-preview-number">00 · Start with the public issue</p><h4>Mamdani announces $70M for public grocery stores</h4><p>New York City makes a public investment to address food affordability. Students begin by asking what the investment should make possible—and who it should serve.</p></div></article>          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v3.png" alt="Illustrated Hunts Point street with elevated subway tracks, brick buildings, and a basketball court."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Begin with place</p><h4>Notice the place</h4><p>Students look closely at the neighborhood, its histories, and the conditions shaping how families find and afford food.</p></div></article>
           <article class="cycle-preview-card"><img src="assets/02-ask-better-questions-v3.png" alt="Illustrated student writing questions at a plain classroom table beside a grocery receipt."><div class="cycle-preview-body"><p class="cycle-preview-number">02 · Name the issue</p><h4>Ask better questions</h4><p>They identify what is missing from familiar stories and ask how power, ownership, investment, and public choices shape affordability.</p></div></article>
           <article class="cycle-preview-card"><img src="assets/03-listen-and-gather-evidence-final.png" alt="Illustrated student interviewing a bodega owner wearing a Yankees hat inside a New York City bodega."><div class="cycle-preview-body"><p class="cycle-preview-number">03 · Gather evidence</p><h4>Listen and gather evidence</h4><p>Students listen to residents and organizations, study local data, and treat lived experience as essential evidence.</p></div></article>
           <article class="cycle-preview-card"><img src="assets/04-make-sense-together-final.png" alt="Three illustrated students studying a map in a school classroom."><div class="cycle-preview-body"><p class="cycle-preview-number">04 · Do the work</p><h4>Make sense together</h4><p>They compare perspectives, test assumptions, weigh tradeoffs, and decide what the evidence supports.</p></div></article>
           <article class="cycle-preview-card"><img src="assets/05-create-a-public-response-final.png" alt="Illustrated student presenting an affordable-grocery recommendation to New York City stakeholders in suits."><div class="cycle-preview-body"><p class="cycle-preview-number">05 · Make it public</p><h4>Create a public response</h4><p>Students translate their learning into a recommendation, design, report, map, story, tool, or proposal.</p></div></article>
           <article class="cycle-preview-card"><img src="assets/06-return-value-to-the-community-final.png" alt="Illustrated Hunts Point street with elevated subway tracks and a neighborhood grocery store displaying fresh fruit and vegetables."><div class="cycle-preview-body"><p class="cycle-preview-number">06 · Create value</p><h4>Return value to the community</h4><p>They share a useful contribution and leave knowledge that the next learner, partner, or decision-maker can build upon.</p></div></article>
+          </div>
         </div>
+        <button class="cycle-carousel-button" type="button" data-carousel-next aria-label="Next step">›</button>
       </div>
+      <p class="cycle-carousel-status" data-carousel-status>Step 1 of 7 · Public issue</p>
+    </div>
     </section>
 
     <section class="national-market" id="national-market">
@@ -1677,6 +1693,18 @@
     <p>Civic Labs turns consequential public questions into rigorous learning, useful public work, and community-owned knowledge — explore <a href="https://www.economicdemocracy.co/" target="_blank" rel="noopener">Economic Democracy</a>, <a href="https://covenantos.co/" target="_blank" rel="noopener">Covenant OS</a>, and <a href="https://www.spcc.one/" target="_blank" rel="noopener">SPCC.1</a>.</p>
   </footer>
   <script>
+    const carouselTrack = document.querySelector('[data-carousel-track]');
+    const carouselCards = carouselTrack ? Array.from(carouselTrack.querySelectorAll('.cycle-preview-card')) : [];
+    const carouselStatus = document.querySelector('[data-carousel-status]');
+    let carouselIndex = 0;
+    const carouselLabels = ['Public issue', 'Notice the place', 'Ask better questions', 'Listen and gather evidence', 'Make sense together', 'Create a public response', 'Return value to the community'];
+    const updateCarousel = () => {
+      if (!carouselTrack || !carouselCards.length) return;
+      carouselTrack.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+      if (carouselStatus) carouselStatus.textContent = 'Step ' + (carouselIndex + 1) + ' of ' + carouselCards.length + ' · ' + carouselLabels[carouselIndex];
+    };
+    document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { carouselIndex = (carouselIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
+    document.querySelector('[data-carousel-next]')?.addEventListener('click', () => { carouselIndex = (carouselIndex + 1) % carouselCards.length; updateCarousel(); });
     const marketTabs = Array.from(document.querySelectorAll('.state-tile-button'));
     const marketPanels = Array.from(document.querySelectorAll('.market-detail-panel'));
 
