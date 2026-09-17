@@ -466,6 +466,20 @@
       border: 1px solid var(--line);
     }
 
+    /* Let the National Platform copy expand and reflow with the viewport. */
+    .national-market > .reading {
+      width: 100%;
+      max-width: 1180px;
+    }
+
+    .national-market > .reading h2 {
+      max-width: 100%;
+    }
+
+    .national-market > .reading > p {
+      max-width: 900px;
+    }
+
     .footprint-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -728,7 +742,7 @@
 
     .gap {
       padding: 42px;
-      background: var(--navy);
+      background: var(--blue);
       color: var(--white);
     }
 
@@ -748,7 +762,7 @@
       display: block;
       width: 100%;
       height: auto;
-      border: 8px solid var(--white);
+      border: 0;
       box-shadow: 0 16px 34px rgba(8,22,47,.28);
       object-fit: contain;
       object-position: top center;
@@ -857,9 +871,10 @@
     .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
     .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
     .build-card { display: flex; min-height: 220px; padding: 24px; flex-direction: column; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+    .build-card { border-top: 4px solid var(--sky); }
     .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 28px/1.12 Georgia, "Times New Roman", serif; }
     .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.5; }
-    .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
+    .build-card a { margin-top: auto; color: var(--sky); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
 
     .cycle-preview {
       margin-top: 48px;
@@ -913,7 +928,7 @@
     .gap h2 { color: var(--white); }
 
     .gap .eyebrow,
-    .gap a { color: var(--white); }
+    .gap a { color: var(--sky); }
 
     .gap a { text-underline-offset: 4px; }
 
