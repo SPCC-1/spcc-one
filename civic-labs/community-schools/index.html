@@ -1689,9 +1689,17 @@
       .site-footer .footer-brand, .site-footer .footer-sites, .site-footer .footer-copyright { justify-self: start; text-align: left; }
       .invitation { padding: 30px 22px; }
       .callout { padding: 20px; font-size: 19px; }
-      .national-footprint { padding: 22px 12px; overflow-x: auto; }
+      .national-footprint { padding: 22px 12px; overflow-x: visible; }
       .footprint-stats { grid-template-columns: 1fr; }
-      .tile-map { min-width: 650px; }
+      .tile-map {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-template-rows: repeat(8, 24px);
+        gap: 3px;
+      }
+      .state-tile,
+      .state-tile-button { font-size: 9px; }
       .market-detail-panel { padding: 24px 20px; }
     }
 
