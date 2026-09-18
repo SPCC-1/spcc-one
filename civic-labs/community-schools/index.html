@@ -480,6 +480,16 @@
       max-width: 900px;
     }
 
+    .national-market > .reading > .eyebrow {
+      color: var(--navy) !important;
+      font-size: 13px;
+    }
+
+    .gap .eyebrow {
+      color: var(--white);
+      font-size: 13px;
+    }
+
     .footprint-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -792,13 +802,17 @@
 
     .methodology {
       padding: 72px 42px;
-      background: var(--warm);
+      background: var(--white);
+      border-bottom: 0;
     }
 
     .methodology h2 { max-width: 1050px; color: var(--navy); }
-    .methodology-intro { max-width: 900px; color: var(--muted); font-size: 21px; line-height: 1.55; }
-    .methodology-intro strong { color: var(--navy); }
-    .methodology-description { max-width: 900px; margin-top: 8px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .methodology > .eyebrow { color: var(--navy); }
+    .methodology-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, .9fr); gap: 54px; align-items: center; }
+    .methodology-copy { max-width: 1180px; }
+    .methodology-copy p { margin: 0 0 20px; color: var(--muted); font-size: 20px; line-height: 1.55; }
+    .methodology-copy p:last-child { margin-bottom: 0; }
+    .methodology-copy strong { color: var(--navy); }
     .methodology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
     .methodology-card { min-height: 235px; padding: 26px; border: 1px solid var(--line); border-top: 5px solid var(--sky); background: var(--white); }
     .methodology-card:nth-child(2) { border-top-color: var(--gold); }
@@ -806,6 +820,10 @@
     .methodology-card .cycle-preview-number { margin-bottom: 12px; }
     .methodology-card h3 { margin: 0 0 14px; color: var(--navy); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
     .methodology-card p:last-child { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .methodology-visual { margin: 0; }
+    .methodology-visual img { display: block; width: 100%; height: auto; }
+    .methodology-visual figcaption { margin-top: 14px; color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .1em; line-height: 1.35; text-transform: uppercase; }
+    .methodology-visual figcaption span { display: block; margin-top: 4px; font-weight: 400; letter-spacing: 0; text-transform: none; }
 
     .capacity-accordion {
       min-height: 0;
@@ -841,9 +859,13 @@
 
     .infrastructure-section {
       padding: 72px 42px;
-      background: var(--paper);
+      background: var(--white);
+      color: var(--navy);
+      border-bottom: 0;
     }
 
+    .infrastructure-section::before { display: none; }
+    .infrastructure-section > .eyebrow { color: var(--navy) !important; }
     .infrastructure-section h2 { max-width: 1050px; color: var(--navy); }
     .infrastructure-intro { max-width: 900px; color: var(--muted); font-size: 21px; line-height: 1.55; }
     .infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
@@ -855,13 +877,76 @@
     .infrastructure-card p { margin: 0 0 16px; color: var(--muted); font-size: 17px; line-height: 1.55; }
     .infrastructure-card p:last-child { margin-top: auto; margin-bottom: 0; color: var(--navy); font-weight: 700; }
 
+    .infrastructure-narrative {
+      max-width: 920px;
+    }
+
+    .infrastructure-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(520px, 1.1fr);
+      align-items: center;
+      gap: 40px;
+    }
+
+    .infrastructure-narrative { max-width: 1180px; }
+    .infrastructure-narrative p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .infrastructure-narrative p:last-child { margin-bottom: 0; }
+    .infrastructure-narrative strong { color: var(--navy); }
+
+    .cumulative-assets {
+      padding: 58px 42px 64px;
+      background: var(--white);
+      border-bottom: 0;
+    }
+
+    .cumulative-assets::before { display: none; }
+    .cumulative-assets figure { max-width: 1180px; margin: 0 auto; }
+    .cumulative-assets img { display: block; width: 100%; height: auto; }
+    .cumulative-assets figcaption { margin-top: 14px; color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .1em; line-height: 1.35; text-transform: uppercase; }
+    .cumulative-assets figcaption strong, .cumulative-assets figcaption span { display: block; }
+    .cumulative-assets figcaption span { margin-top: 4px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+    .infrastructure-visual { max-width: none; margin: 0; }
+    .infrastructure-visual img { display: block; width: 100%; height: auto; }
+    .infrastructure-visual figcaption {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .infrastructure-visual figcaption strong,
+    .infrastructure-visual figcaption span {
+      display: block;
+    }
+
+    .infrastructure-visual figcaption span {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.5;
+      text-transform: none;
+    }
+
     .build-section {
       padding: 72px 42px;
       background: var(--navy);
       color: var(--white);
     }
 
-    section.build-section > .eyebrow { color: var(--sky); }
+    section.build-section > .eyebrow { color: var(--gold); }
     .build-section h2 { max-width: 900px; color: var(--white); }
     .build-intro { max-width: 820px; color: rgba(255,255,255,.82); font-size: 20px; line-height: 1.55; }
     .build-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 390px); gap: 42px; align-items: center; }
@@ -870,11 +955,11 @@
     .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.5; }
     .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
     .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
-    .build-card { display: flex; min-height: 220px; padding: 24px; flex-direction: column; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
-    .build-card { border-top: 4px solid var(--sky); }
+    .build-card { display: flex; min-height: 220px; padding: 24px; flex-direction: column; border: 1px solid var(--gold); background: var(--gold); }
+    .build-card { border-top: 4px solid var(--gold); }
     .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 28px/1.12 Georgia, "Times New Roman", serif; }
-    .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.5; }
-    .build-card a { margin-top: auto; color: var(--sky); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
+    .build-card p { margin: 0 0 20px; color: var(--white); font-size: 16px; line-height: 1.5; }
+    .build-card a { display: inline-block; align-self: flex-start; margin-top: auto; padding: 0; background: transparent; color: var(--navy); font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 
     .cycle-preview {
       margin-top: 48px;
@@ -927,7 +1012,6 @@
 
     .gap h2 { color: var(--white); }
 
-    .gap .eyebrow,
     .gap a { color: var(--sky); }
 
     .gap a { text-underline-offset: 4px; }
@@ -952,7 +1036,7 @@
       color: rgba(255,255,255,.72);
     }
 
-    .build-section .inheritance-link a { color: var(--sky); }
+    .build-section .inheritance-link a { color: var(--gold); }
 
     .gap p {
       max-width: 780px;
@@ -1555,6 +1639,7 @@
     }
 
     @media (max-width: 820px) {
+      .methodology-layout { grid-template-columns: 1fr; gap: 34px; }
       .method-steps { grid-template-columns: 1fr 1fr; gap: 28px 0; }
       .heart-equation { grid-template-columns: 1fr; }
       .heart-mark { min-height: 34px; }
@@ -1573,6 +1658,8 @@
       .infrastructure-grid { grid-template-columns: 1fr; }
       .build-grid { grid-template-columns: 1fr; }
       .build-layout { grid-template-columns: 1fr; gap: 28px; }
+      .infrastructure-layout { grid-template-columns: 1fr; gap: 34px; }
+      .cumulative-assets { padding: 42px 22px 48px; }
       .cycle-preview-grid { grid-template-columns: 1fr; }
       .tension-grid { gap: 4px; }
       .lineage-stop summary { font-size: 20px; }
@@ -1650,18 +1737,19 @@
       </div>
 
       <div class="cycle-preview">
-        <h3>Food affordability, step by step</h3>
+        <p class="eyebrow">An illustration of the process</p>
+        <h3>Food affordability, step-by-step</h3>
         <div class="cycle-carousel" aria-label="Food affordability journey">
         <button class="cycle-carousel-button" type="button" data-carousel-prev aria-label="Previous step">‹</button>
         <div class="cycle-carousel-viewport">
           <div class="cycle-preview-grid" data-carousel-track>
-          <article class="cycle-preview-card"><img src="assets/mamdani-public-grocery-stores.png" alt="Editorial cartoon of Mayor Mamdani announcing $70M for public grocery stores in New York City."><div class="cycle-preview-body"><p class="cycle-preview-number">00 · Start with the public issue</p><p>New York City has committed $70 million to public grocery stores as a response to food affordability. Students begin by asking what this investment should make possible, who it should serve, and how residents should help shape the decisions that follow.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v4.png" alt="Three high-school students walking together on a Hunts Point block beneath elevated subway tracks."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Begin with community</p><p>Students study Hunts Point as it exists—not as an abstract food-access problem. They walk the neighborhood, document stores and transit routes, examine prices and availability, and learn from residents, families, bodega owners, and small-business owners about how people actually find and afford food.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/02-ask-better-questions-v5.png" alt="High-school student looking at the Civic Lab Food Affordability website on a computer screen."><div class="cycle-preview-body"><p class="cycle-preview-number">02 · Ask better questions</p><p>Students turn what they observe into an investigation. They ask how public investment, land, ownership, transportation, wages, pricing, and neighborhood power shape food affordability—and what questions city planners, store operators, and community organizations need to answer.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/03-listen-and-gather-evidence-v4.png" alt="Three high-school students talking with a bodega owner inside a Bronx bodega."><div class="cycle-preview-body"><p class="cycle-preview-number">03 · Listen and gather evidence</p><p>Students conduct participatory research with people closest to the issue. They interview bodega owners and small-business owners, meet with city officials and other stakeholders, study data and policy, compare perspectives, and treat lived experience as essential evidence—not merely as anecdote.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/04-make-sense-together-v5.png" alt="Three high-school students making sense of a map together in a classroom."><div class="cycle-preview-body"><p class="cycle-preview-number">04 · Make sense together</p><p>Students bring their findings back to the community and work across differences to interpret them. Together, they test assumptions, identify tradeoffs, distinguish what is known from what remains uncertain, and develop conclusions rigorous enough to guide public decisions.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/05-create-a-public-response-v7.png" alt="High-school student presenting a public response to New York City stakeholders, with subtle distinct earrings among the women in the room."><div class="cycle-preview-body"><p class="cycle-preview-number">05 · Create a public response</p><p>Students present their findings to stakeholders with the authority to act, including city agencies, public officials, community organizations, and potential operators or investors. They create a usable artifact—a recommendation, map, business model, design, report, or decision framework—that others can use to make consequential choices.</p></div></article>
-          <article class="cycle-preview-card"><img src="assets/06-return-value-to-the-community-v5.png" alt="Three high-school students shopping for food in a Bronx grocery store during its Grand Opening."><div class="cycle-preview-body"><p class="cycle-preview-number">06 · Return value to the community</p><p>Public and private investments should be shaped by the evidence and contributions of the communities involved. The result should grow community assets and leave behind knowledge, tools, relationships, or institutions that remain useful after the project ends.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/mamdani-public-grocery-stores.png" alt="Editorial cartoon of Mayor Mamdani announcing $70M for public grocery stores in New York City."><div class="cycle-preview-body"><p class="cycle-preview-number">01 · Start with the public issue</p><p>New York City has committed $70 million to public grocery stores as a response to food affordability. Students begin by asking what this investment should make possible, who it should serve, and how residents should help shape the decisions that follow.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/01-notice-the-place-v4.png" alt="Three high-school students walking together on a Hunts Point block beneath elevated subway tracks."><div class="cycle-preview-body"><p class="cycle-preview-number">02 · Begin with community</p><p>Students study Hunts Point as it exists—not as an abstract food-access problem. They walk the neighborhood, document stores and transit routes, examine prices and availability, and learn from residents, families, bodega owners, and small-business owners about how people actually find and afford food.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/02-ask-better-questions-v5.png" alt="High-school student looking at the Civic Lab Food Affordability website on a computer screen."><div class="cycle-preview-body"><p class="cycle-preview-number">03 · Ask better questions</p><p>Students turn what they observe into an investigation. They ask how public investment, land, ownership, transportation, wages, pricing, and neighborhood power shape food affordability—and what questions city planners, store operators, and community organizations need to answer.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/03-listen-and-gather-evidence-v4.png" alt="Three high-school students talking with a bodega owner inside a Bronx bodega."><div class="cycle-preview-body"><p class="cycle-preview-number">04 · Listen and gather evidence</p><p>Students conduct participatory research with people closest to the issue. They interview bodega owners and small-business owners, meet with city officials and other stakeholders, study data and policy, compare perspectives, and treat lived experience as essential evidence—not merely as anecdote.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/04-make-sense-together-v5.png" alt="Three high-school students making sense of a map together in a classroom."><div class="cycle-preview-body"><p class="cycle-preview-number">05 · Make sense together</p><p>Students bring their findings back to the community and work across differences to interpret them. Together, they test assumptions, identify tradeoffs, distinguish what is known from what remains uncertain, and develop conclusions rigorous enough to guide public decisions.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/05-create-a-public-response-v7.png" alt="High-school student presenting a public response to New York City stakeholders, with subtle distinct earrings among the women in the room."><div class="cycle-preview-body"><p class="cycle-preview-number">06 · Create a public response</p><p>Students present their findings to stakeholders with the authority to act, including city agencies, public officials, community organizations, and potential operators or investors. They create a usable artifact—a recommendation, map, business model, design, report, or decision framework—that others can use to make consequential choices.</p></div></article>
+          <article class="cycle-preview-card"><img src="assets/06-return-value-to-the-community-v5.png" alt="Three high-school students shopping for food in a Bronx grocery store during its Grand Opening."><div class="cycle-preview-body"><p class="cycle-preview-number">07 · Return value to the community</p><p>Public and private investments should be shaped by the evidence and contributions of the communities involved. The result should grow community assets and leave behind knowledge, tools, relationships, or institutions that remain useful after the project ends.</p></div></article>
           </div>
         </div>
         <button class="cycle-carousel-button" type="button" data-carousel-next aria-label="Next step">›</button>
@@ -1736,40 +1824,44 @@
 
     <section class="methodology">
       <p class="eyebrow">What Civic Labs add to Community Schools</p>
-      <p class="methodology-intro"><strong>Growing the shared capacity of our public institutions.</strong></p>
-      <p class="methodology-description">Civic Labs turn a consequential community issue into organized work and a lasting public asset.</p>
-      <div class="methodology-grid">
-        <details class="capacity-accordion">
-          <summary><span class="capacity-number">01 ·</span><span class="capacity-term">Issue</span><span class="capacity-phrase">Grounded in the community</span></summary>
-          <div class="capacity-accordion-body"><p>A Civic Lab begins with a consequential public issue identified with the people and institutions closest to it. Students and educators study the place as it exists, listening to residents, families, community organizations, workers, and local institutions.</p><p>The issue gives the work direction. It establishes why the learning matters, who should be involved, what evidence is needed, and what kind of public response could be useful.</p></div>
-        </details>
-        <details class="capacity-accordion">
-          <summary><span class="capacity-number">02 ·</span><span class="capacity-term">Work</span><span class="capacity-phrase">Aligning the ecosystem</span></summary>
-          <div class="capacity-accordion-body"><p>The work brings students, educators, community partners, higher-education participants, public agencies, businesses, and other stakeholders together around a shared investigation.</p><p>Participants gather and interpret evidence, deliberate across differences, test assumptions, and produce something tangible: a recommendation, map, report, design, business model, policy framework, dataset, story, or other public artifact that an institution or community can use.</p></div>
-        </details>
-        <details class="capacity-accordion">
-          <summary><span class="capacity-number">03 ·</span><span class="capacity-term">Value</span><span class="capacity-phrase">Make the contribution count</span></summary>
-          <div class="capacity-accordion-body"><p>Value begins when the work is made public and taken seriously. Students demonstrate what they learned and defend the quality of their findings before stakeholders with the authority to respond.</p><p>The contribution is recorded—who created it, what evidence supports it, how it was evaluated, which community and institution received it, and what public value it produced. The result is durable evidence for the learner, a reusable asset for the community, and the possibility of institutional change.</p></div>
-        </details>
+      <h2>Growing the shared capacity of our public institutions.</h2>
+      <div class="methodology-layout">
+        <div class="methodology-copy">
+          <p>Community Schools already connect young people, educators, families, and neighborhood institutions around the issues that matter locally. Civic Labs add a way to turn that work into durable, owned, and reusable public assets.</p>
+          <p>A Civic Lab begins with a consequential issue and brings the right people together to investigate it. The group produces something useful—research, interviews, recommendations, maps, designs, reports, or public decisions—and makes the contribution visible: who created it, what evidence supports it, and where the work came from.</p>
+          <p>That provenance creates an ownership layer. When public and private institutions use community knowledge to make better decisions about public health, public resources, education, housing, food, or markets, they should pay for the research and the relationships that produced it. Value can return to the people and places that created it.</p>
+          <p><strong>This is how community schools become part of a local economic engine:</strong> contribution becomes a public asset, public assets grow across projects and places, and shared capacity becomes something communities can sustain.</p>
+        </div>
+        <figure class="methodology-visual">
+          <img src="assets/08-cumulative-civic-labs.png" alt="Six community groups working on different civic issues and contributing to a shared civic learning ledger.">
+          <figcaption><strong>08 · Cumulative Community Assets</strong><span>Civic Labs produce multiple artifacts that are recorded in a shared ledger, where they grow in value across projects, places, and time.</span></figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="infrastructure-section">
-      <p class="eyebrow">From contribution to infrastructure</p>
-      <h2>From verified contribution to civic infrastructure.</h2>
-      <p class="infrastructure-intro">Civic Labs produce verified contribution. The product makes it ownable, usable, and cumulative. Institutional adoption turns community assets into civic infrastructure.</p>
-      <div class="infrastructure-grid">
-        <article class="infrastructure-card"><p class="cycle-preview-number">01 · Service</p><h3>Civic Labs + Community Schools</h3><p><strong>The connective tissue between grassroots work and institutions.</strong></p><p>Civic Labs coordinate the relationships, facilitation, and delivery that carry community knowledge and local work into schools, public agencies, higher education, businesses, philanthropy, and other institutions.</p><p>The service brings the right people together, supports the work, and carries the resulting contribution to an institution prepared to recognize and use it.</p><p>Produces: a verified contribution.</p></article>
-        <article class="infrastructure-card"><p class="cycle-preview-number">02 · Product</p><h3>Community Learning Ledger</h3><p><strong>A protocol and platform for recording contribution.</strong></p><p>The Ledger records what was created, who contributed, what evidence supports it, how the work was evaluated, which community and institution received it, and what permissions govern its use.</p><p>The product makes a verified contribution ownable by the learner, usable by institutions and communities, and cumulative across projects, places, and time.</p><p>Produces: a portable record and durable community asset.</p></article>
-        <article class="infrastructure-card"><p class="cycle-preview-number">03 · Market</p><h3>Institutional adoption</h3><p><strong>The people and institutions that pay for and legitimize the infrastructure.</strong></p><p>Government, higher education, business, philanthropy, schools, and other institutions pay for the infrastructure and knowledge they use.</p><p>They provide legitimacy by receiving the work, validating its quality, using it in real decisions, and investing in the assets communities create. Adoption gives those assets standing beyond the original project and creates demand for the next cycle.</p><p>Creates: the conditions under which community assets become civic infrastructure.</p></article>
+      <p class="eyebrow">The Big Idea for the Social Sector</p>
+      <h2>Civic Labs make community contribution legible.</h2>
+      <div class="infrastructure-layout">
+        <div class="infrastructure-narrative">
+          <p><strong>A Bloomberg terminal helps capital markets see and price financial information. A Community Learning Ledger helps the social sector see, validate, govern, and value the knowledge and relationships that make public work possible.</strong></p>
+          <p>The internet can store a report and help someone find it. But search does not show who contributed the knowledge, how the work was developed, whether the community authorized its use, or what later decisions and assets came from it. Valuable community work becomes visible as a finished product while the contribution behind it remains invisible.</p>
+          <p>A Civic Lab leaves behind a different kind of record. The Community Learning Ledger connects a community question to the people who investigated it, the evidence they gathered, the artifact they produced, the institution that used it, and the value that followed. The ledger holds the record; an accounting system makes that record observable and usable.</p>
+          <p>Once contribution has provenance, it can carry an ownership claim. A student’s research, a resident’s knowledge, or a community organization’s relationships are no longer treated as anonymous input. They become attributable, verifiable, reusable public assets that can be recognized and protected as they move through the world.</p>
+          <p>The opportunity is to let communities benefit from the value they are already creating. A project in Hunts Point can inform work in another neighborhood, while public agencies, universities, businesses, and philanthropic institutions gain better local intelligence for decisions about health, resources, education, housing, food, and markets. Civic Labs make the chain visible so value can return to the people and places that produced it.</p>
+        </div>
+        <figure class="infrastructure-visual">
+          <img src="assets/community-learning-ledger.png" alt="Circular sequence showing a community issue becoming contribution, proof of work, provenance, validation, ownership, and market value through the Community Learning Ledger.">
+          <figcaption><strong>Community Learning Ledger</strong><span>From a community issue to value that returns to the community.</span></figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="build-section">
       <p class="eyebrow">Build with us</p>
       <div class="build-layout">
-        <div><h2>What can we create together?</h2><p class="build-intro">We are already doing the groundwork of organizing the first Civic Lab in New York City. We are looking for the right philanthropic partners and field builders to help us turn this local demonstration into shared capacity that can build the field.</p><p class="inheritance-link"><a href="lineage/">Read the history behind this work: <em>A Public Inheritance</em> →</a></p></div>
-        <article class="build-card"><h3>For philanthropy and field builders</h3><p>Strengthen the capacity connecting Community Schools, civic learning, universities, and communities.</p><a href="business-model/index.html">Explore the philanthropy and field-builders opportunity →</a></article>
+        <div><h2>What can we accomplish together?</h2><p class="build-intro">We are already doing the groundwork of organizing the first Civic Lab in New York City. We are looking for the right philanthropic partners and field builders to help us turn this local demonstration into shared capacity that can build the field.</p><p class="inheritance-link"><a href="lineage/">Read the history behind this work: <em>A Public Inheritance</em> →</a></p></div>
+        <article class="build-card"><h3>For Philanthropy and Field Builders</h3><p>Strengthen the capacity connecting Community Schools, civic learning, universities, and communities.</p><a href="business-model/index.html">Explore the three-phase approach here →</a></article>
       </div>
     </section>
 
