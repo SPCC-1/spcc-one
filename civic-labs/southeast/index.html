@@ -1,0 +1,2096 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Southeast front door for Civic Labs: place-based work that braids public education, civic learning, community knowledge, and institutional capacity.">
+  <title>Civic Labs, Southeast | SPCC.1</title>
+  <style>
+    :root {
+      --navy: #1f3864;
+      --blue: #2d4373;
+      --ink: #171a20;
+      --muted: #596273;
+      --line: #d8dee8;
+      --soft: #f3f6fa;
+      --white: #ffffff;
+      --sky: #7fd6e5;
+      --gold: #e6b84a;
+      --coral: #dc745f;
+      --warm: #fff8e8;
+      --blush: #fff3ef;
+      --page-pad: clamp(22px, 5vw, 96px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.62;
+    }
+
+    body::before {
+      display: block;
+      width: 100%;
+      height: 8px;
+      background: var(--navy);
+      content: "";
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      width: 100%;
+      border-bottom: 1px solid rgba(31,56,100,.14);
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      width: 100%;
+      min-height: 66px;
+      padding: 0 var(--page-pad);
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .nav-brand {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(15px, 2vw, 30px);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links > a {
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links > a:hover,
+    .nav-links > a:focus { color: #9a6b08; }
+
+    main {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative;
+      display: flex;
+      min-height: min(780px, 88vh);
+      width: 100%;
+      max-width: none;
+      padding: 72px var(--page-pad);
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 0;
+      background:
+        linear-gradient(90deg, rgba(15, 37, 82, 0.96) 0%, rgba(21, 53, 108, 0.88) 54%, rgba(25, 62, 119, 0.66) 100%),
+        url("../../assets/images/hero-scn.jpg") center / cover no-repeat;
+    }
+
+    header::after {
+      display: block;
+      width: min(100%, 980px);
+      height: 6px;
+      margin-top: 36px;
+      background: linear-gradient(90deg, var(--navy) 0 52%, var(--sky) 52% 76%, var(--gold) 76% 91%, var(--coral) 91% 100%);
+      content: "";
+    }
+
+    .site-path {
+      margin: 0 0 34px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .site-path a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .site-path a:hover,
+    .site-path a:focus { text-decoration: underline; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 1120px;
+      margin: 0 0 24px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(54px, 7.2vw, 104px);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 0.96;
+    }
+
+    .hero-tagline {
+      max-width: 1020px;
+      margin: 0 0 28px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 3.4vw, 46px);
+      line-height: 1.16;
+    }
+
+    .hero-tagline em { color: var(--gold); font-style: italic; }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4.2vw, 58px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      letter-spacing: -0.005em;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .lede {
+      max-width: 900px;
+      color: rgba(255,255,255,0.84);
+      font-size: 21px;
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .hero-actions a {
+      display: inline-block;
+      padding: 13px 18px;
+      border: 1px solid rgba(255,255,255,.55);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero-actions a:first-child {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .hero-actions a:hover,
+    .hero-actions a:focus { background: var(--white); color: var(--navy); }
+
+    .exemplar-intro {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .exemplar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .exemplar-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .exemplar-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-bottom: 1px solid var(--line);
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .exemplar-body { padding: 24px; }
+
+    .exemplar-number {
+      margin: 0 0 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .exemplar-card h3 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .exemplar-card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .exemplar-card a {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      padding: 62px var(--page-pad);
+      border-bottom: 1px solid var(--line);
+    }
+
+    section::before {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 86px;
+      height: 4px;
+      background: var(--sky);
+      content: "";
+    }
+
+    section:nth-of-type(3n + 2)::before { background: var(--gold); }
+    section:nth-of-type(3n)::before { background: var(--coral); }
+
+    section:nth-of-type(3n + 2) > .eyebrow,
+    section:nth-of-type(3n + 2) > .reading .eyebrow { color: #9a6a00; }
+
+    section:nth-of-type(3n) > .eyebrow,
+    section:nth-of-type(3n) > .reading .eyebrow { color: #a84d3c; }
+
+    .reading {
+      max-width: 900px;
+    }
+
+    .founding-tension {
+      background: linear-gradient(135deg, var(--warm), var(--white) 68%);
+      color: var(--ink);
+    }
+    .founding-tension::before { background: var(--coral); }
+    .founding-tension .eyebrow { color: #a84d3c; }
+    .founding-tension h2 {
+      max-width: 1120px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 4.8vw, 62px);
+      font-weight: 400;
+    }
+    .tension-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 42px;
+      max-width: 1180px;
+      margin-top: 32px;
+    }
+    .tension-grid p {
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.62;
+    }
+    .tension-resolution {
+      max-width: 1180px;
+      margin-top: 12px;
+      padding: 25px 28px;
+      border-left: 5px solid var(--sky);
+      background: var(--navy);
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(21px, 2.2vw, 28px);
+      line-height: 1.45;
+    }
+    .founding-tension a {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--navy);
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .callout {
+      max-width: 820px;
+      margin: 32px 0 0;
+      padding: 24px 28px;
+      border-left: 6px solid var(--navy);
+      background: var(--soft);
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .difference-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 58px;
+      align-items: start;
+      background: linear-gradient(105deg, var(--warm), var(--white) 72%);
+    }
+
+    .difference-lines { border-top: 1px solid var(--line); }
+
+    .difference-lines p {
+      margin: 0;
+      padding: 19px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .difference-lines strong { color: var(--navy); }
+
+    .lineage-arc {
+      max-width: 820px;
+      margin-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .lineage-stop {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lineage-stop summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 4px;
+      color: var(--navy);
+      cursor: pointer;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .lineage-stop summary::-webkit-details-marker { display: none; }
+
+    .lineage-stop summary::after {
+      content: "+";
+      font-family: Arial, sans-serif;
+      font-size: 27px;
+      font-weight: 300;
+    }
+
+    .lineage-stop[open] summary::after { content: "−"; }
+
+    .lineage-stop p {
+      max-width: 680px;
+      margin: -4px 48px 24px 4px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .lineage-conclusion {
+      max-width: 820px;
+      margin-top: 34px;
+      padding: 24px 28px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .gap-findings {
+      max-width: 820px;
+      margin: 30px 0 0;
+      padding-left: 26px;
+    }
+
+    .gap-findings li {
+      margin: 0 0 18px;
+      padding-left: 8px;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.55;
+    }
+
+    .gap-findings li::marker { color: var(--sky); }
+
+    .gap-findings strong {
+      color: var(--white);
+      font-size: 18px;
+    }
+
+    .national-footprint {
+      margin-top: 34px;
+      padding: 34px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .regional-note {
+      margin-top: 34px;
+      padding: 30px;
+      border-left: 5px solid var(--gold);
+      background: var(--soft);
+    }
+
+    .regional-note p {
+      max-width: 900px;
+      margin: 0;
+      color: var(--navy);
+      font: 400 29px/1.25 Georgia, "Times New Roman", serif;
+    }
+
+    .regional-capacities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 24px;
+      background: var(--line);
+    }
+
+    .regional-capacity {
+      min-height: 126px;
+      padding: 22px;
+      background: var(--white);
+    }
+
+    .regional-capacity strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font: 400 25px/1.1 Georgia, "Times New Roman", serif;
+    }
+
+    .regional-capacity span {
+      display: block;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .place-question {
+      margin-top: 34px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .place-question p:last-child { margin-bottom: 0; }
+
+    .inheritance-braid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: 28px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+
+    .strand-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .strand {
+      position: relative;
+      display: grid;
+      grid-template-columns: 10px minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .strand::before {
+      content: "";
+      display: block;
+      width: 10px;
+      min-height: 100%;
+      background: var(--strand-color, var(--navy));
+    }
+
+    .strand h3 { margin: 0 0 5px; color: var(--navy); font: 400 23px/1.1 Georgia, "Times New Roman", serif; }
+    .strand p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
+    .strand small { display: block; margin-top: 7px; color: var(--navy); font-size: 12px; font-weight: 700; }
+
+    .convergence {
+      display: flex;
+      min-height: 100%;
+      padding: 30px;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .convergence .eyebrow { color: var(--gold); }
+    .convergence h3 { margin: 0 0 16px; color: var(--white); font: 400 36px/1.05 Georgia, "Times New Roman", serif; }
+    .convergence p { margin: 0 0 16px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.5; }
+    .convergence p:last-child { margin-bottom: 0; }
+    .convergence strong { color: var(--gold); }
+
+    #civic-labs { border-bottom: 0; }
+    .national-market::before { display: none; }
+
+    /* Let the National Platform copy expand and reflow with the viewport. */
+    .national-market > .reading {
+      width: 100%;
+      max-width: 1180px;
+    }
+
+    .national-market > .reading h2 {
+      max-width: 100%;
+    }
+
+    .national-market > .reading > p {
+      max-width: 900px;
+    }
+
+    .national-market > .reading > .eyebrow {
+      color: var(--navy) !important;
+      font-size: 13px;
+    }
+
+    .gap .eyebrow {
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .footprint-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-bottom: 30px;
+      background: var(--line);
+    }
+
+    .footprint-stat {
+      min-height: 132px;
+      padding: 20px 22px;
+      background: var(--white);
+    }
+
+    .footprint-stat strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+    }
+
+    .footprint-stat b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footprint-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .tile-map {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(30px, 1fr));
+      grid-template-rows: repeat(8, 42px);
+      gap: 5px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .state-tile {
+      display: grid;
+      place-items: center;
+      border-radius: 3px;
+      background: #dfe4ec;
+      color: #738096;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .state-tile.active {
+      background: #7f9cc8;
+      color: var(--white);
+    }
+
+    .state-tile.priority {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: inset 0 0 0 3px var(--sky);
+    }
+
+    .state-tile-button {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      border-radius: 3px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .state-tile.priority:focus-within,
+    .state-tile.priority:hover { outline: 3px solid var(--coral); outline-offset: 2px; }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 24px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend-key::before {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 7px;
+      border-radius: 2px;
+      background: #7f9cc8;
+      vertical-align: -2px;
+      content: "";
+    }
+
+    .legend-key.priority::before {
+      background: var(--navy);
+      box-shadow: inset 0 0 0 2px var(--sky);
+    }
+
+    .map-caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .map-sources {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 18px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .map-sources a {
+      color: var(--navy);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+
+    .market-bridge {
+      max-width: 1020px;
+      margin: 34px auto 0;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(21px, 2vw, 28px);
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .market-detail-panel {
+      grid-column: 1 / -1;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--sky);
+      background: var(--white);
+    }
+
+    .market-detail-panel[hidden] { display: none; }
+
+    .market-detail-panel h3 { font-size: 26px; }
+
+    .market-detail-panel p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .market-detail-panel p:last-child { margin-bottom: 0; }
+
+    .market-detail-panel a {
+      color: var(--navy);
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .map-details { margin-top: 24px; }
+    .map-details .market-detail-panel {
+      border-color: var(--navy);
+      border-top-width: 6px;
+      background: var(--white);
+    }
+
+    .map-details .market-detail-panel h3 {
+      color: var(--navy);
+    }
+
+    .map-details .market-detail-panel p {
+      color: var(--ink);
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 22px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .source-links a {
+      color: var(--navy);
+      text-underline-offset: 4px;
+    }
+
+    .lineage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .lineage details {
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .lineage summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: var(--navy);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .lineage summary::-webkit-details-marker { display: none; }
+
+    .lineage summary::after {
+      content: "+";
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .lineage details[open] summary::after { content: "−"; }
+
+    .lineage .detail-body {
+      padding: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .lineage .detail-body h3 {
+      margin-top: 18px;
+      font-size: 16px;
+    }
+
+    .lineage .detail-body h3:first-child { margin-top: 0; }
+
+    .lineage .detail-body p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .lineage .detail-body p:last-child { margin-bottom: 0; }
+
+    .gap {
+      padding: 42px;
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .gap-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .gap-report {
+      margin: 0;
+      width: 100%;
+    }
+
+    .gap-report img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 0;
+      box-shadow: 0 16px 34px rgba(8,22,47,.28);
+      object-fit: contain;
+      object-position: top center;
+    }
+
+    .gap-report figcaption {
+      margin-top: 12px;
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .simple-system {
+      padding: 72px 42px;
+      background: var(--warm);
+    }
+
+    .simple-system h2 { max-width: 920px; color: var(--navy); }
+    .simple-system-intro { max-width: 850px; color: var(--muted); font-size: 21px; }
+    .simple-system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .simple-system-card { min-height: 230px; padding: 24px; border-top: 5px solid var(--sky); background: var(--white); }
+    .simple-system-card:nth-child(2) { border-top-color: var(--gold); }
+    .simple-system-card:nth-child(3) { border-top-color: var(--coral); }
+    .simple-system-card h3 { margin: 0 0 12px; color: var(--navy); font: 400 27px/1.12 Georgia, "Times New Roman", serif; }
+    .simple-system-card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+    .simple-system-close { max-width: 820px; margin: 30px 0 0; color: var(--navy); font: 400 24px/1.35 Georgia, "Times New Roman", serif; }
+
+    .methodology {
+      padding: 72px 42px;
+      background: var(--white);
+      border-bottom: 0;
+    }
+
+    .methodology h2 { max-width: 1050px; color: var(--navy); }
+    .methodology > .eyebrow { color: var(--navy); }
+    .methodology-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, .9fr); gap: 54px; align-items: center; }
+    .methodology-copy { max-width: 1180px; }
+    .methodology-copy p { margin: 0 0 20px; color: var(--muted); font-size: 20px; line-height: 1.55; }
+    .methodology-copy p:last-child { margin-bottom: 0; }
+    .methodology-copy strong { color: var(--navy); }
+    .methodology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .methodology-card { min-height: 235px; padding: 26px; border: 1px solid var(--line); border-top: 5px solid var(--sky); background: var(--white); }
+    .methodology-card:nth-child(2) { border-top-color: var(--gold); }
+    .methodology-card:nth-child(3) { border-top-color: var(--coral); }
+    .methodology-card .cycle-preview-number { margin-bottom: 12px; }
+    .methodology-card h3 { margin: 0 0 14px; color: var(--navy); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .methodology-card p:last-child { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .methodology-visual { margin: 0; }
+    .methodology-visual img { display: block; width: 100%; height: auto; }
+    .methodology-visual figcaption { margin-top: 14px; color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .1em; line-height: 1.35; text-transform: uppercase; }
+    .methodology-visual figcaption span { display: block; margin-top: 4px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+    .credibility-section {
+      padding: 72px 42px;
+      background: var(--warm);
+      border-bottom: 1px solid var(--line);
+    }
+    .credibility-section h2 { max-width: 980px; color: var(--navy); }
+    .credibility-intro { max-width: 920px; color: var(--muted); font-size: 21px; line-height: 1.55; }
+    .people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .person-card { overflow: hidden; border: 1px solid var(--line); background: var(--white); }
+    .person-photo { display: block; width: 100%; height: 235px; object-fit: cover; object-position: center; }
+    .person-card:first-child .person-photo { object-position: center 30%; }
+    .person-card-body { padding: 25px; }
+    .person-card h3 { margin: 0 0 8px; color: var(--navy); font: 400 28px/1.12 Georgia, "Times New Roman", serif; }
+    .person-card p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+    .person-card p:last-child { margin-bottom: 0; }
+    .person-card .role { margin-bottom: 13px; color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .credibility-subhead { margin: 58px 0 18px; color: var(--navy); font: 400 36px/1.1 Georgia, "Times New Roman", serif; }
+    .credibility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .credibility-card { border: 1px solid var(--line); background: var(--white); }
+    .story-photo { display: block; width: 100%; height: 260px; object-fit: cover; object-position: center; }
+    .story-photo.eso { object-position: center; }
+    .story-body { padding: 26px; }
+    .story-body h3 { margin: 0 0 7px; color: var(--navy); font: 400 30px/1.1 Georgia, "Times New Roman", serif; }
+    .story-label { margin: 0 0 16px; color: var(--coral); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .story-body p { margin: 0 0 18px; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .story-details { border-top: 1px solid var(--line); }
+    .story-details summary { padding: 17px 0 0; color: var(--navy); cursor: pointer; font-size: 14px; font-weight: 800; list-style: none; }
+    .story-details summary::-webkit-details-marker { display: none; }
+    .story-details summary::after { float: right; color: var(--gold); content: "+"; font-size: 22px; font-weight: 400; }
+    .story-details[open] summary::after { content: "–"; }
+    .story-details p { padding-top: 15px; margin-bottom: 0; font-size: 16px; }
+    .credibility-close { max-width: 920px; margin: 32px 0 0; padding: 25px 28px; background: var(--navy); color: var(--white); font: 400 23px/1.4 Georgia, "Times New Roman", serif; }
+
+    .capacity-accordion {
+      min-height: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .capacity-accordion:nth-child(2),
+    .capacity-accordion:nth-child(3) { border-top-color: var(--line); }
+    .capacity-accordion summary {
+      display: block;
+      padding: 26px;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+    }
+    .capacity-accordion summary::-webkit-details-marker { display: none; }
+    .capacity-accordion summary::after {
+      float: right;
+      color: var(--gold);
+      content: "+";
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .capacity-accordion[open] summary::after { content: "−"; }
+    .capacity-accordion .capacity-number { display: inline; margin-right: 8px; color: var(--navy); font-size: 28px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+    .capacity-accordion .capacity-term { display: inline; margin-bottom: 8px; font: 400 38px/1.05 Georgia, "Times New Roman", serif; }
+    .capacity-accordion .capacity-phrase { display: block; max-width: 260px; color: var(--muted); font-size: 18px; line-height: 1.35; }
+    .capacity-accordion-body { padding: 0 26px 26px; border-top: 1px solid var(--line); }
+    .capacity-accordion-body p { margin: 18px 0 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+
+    .infrastructure-section {
+      padding: 72px 42px;
+      background: var(--white);
+      color: var(--navy);
+      border-bottom: 0;
+    }
+
+    .infrastructure-section::before { display: none; }
+    .infrastructure-section > .eyebrow { color: var(--navy) !important; }
+    .infrastructure-section h2 { max-width: 1050px; color: var(--navy); }
+    .infrastructure-intro { max-width: 900px; color: var(--muted); font-size: 21px; line-height: 1.55; }
+    .infrastructure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .infrastructure-card { display: flex; min-height: 285px; padding: 26px; flex-direction: column; border: 1px solid var(--line); border-top: 5px solid var(--navy); background: var(--white); }
+    .infrastructure-card:nth-child(2) { border-top-color: var(--gold); }
+    .infrastructure-card:nth-child(3) { border-top-color: var(--coral); }
+    .infrastructure-card .cycle-preview-number { margin-bottom: 12px; }
+    .infrastructure-card h3 { margin: 0 0 14px; color: var(--navy); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .infrastructure-card p { margin: 0 0 16px; color: var(--muted); font-size: 17px; line-height: 1.55; }
+    .infrastructure-card p:last-child { margin-top: auto; margin-bottom: 0; color: var(--navy); font-weight: 700; }
+
+    .infrastructure-narrative {
+      max-width: 920px;
+    }
+
+    .infrastructure-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(520px, 1.1fr);
+      align-items: center;
+      gap: 40px;
+    }
+
+    .infrastructure-narrative { max-width: 1180px; }
+    .infrastructure-narrative p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .infrastructure-narrative p:last-child { margin-bottom: 0; }
+    .infrastructure-narrative strong { color: var(--navy); }
+
+    .cumulative-assets {
+      padding: 58px 42px 64px;
+      background: var(--white);
+      border-bottom: 0;
+    }
+
+    .cumulative-assets::before { display: none; }
+    .cumulative-assets figure { max-width: 1180px; margin: 0 auto; }
+    .cumulative-assets img { display: block; width: 100%; height: auto; }
+    .cumulative-assets figcaption { margin-top: 14px; color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .1em; line-height: 1.35; text-transform: uppercase; }
+    .cumulative-assets figcaption strong, .cumulative-assets figcaption span { display: block; }
+    .cumulative-assets figcaption span { margin-top: 4px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+    .infrastructure-visual { max-width: none; margin: 0; }
+    .infrastructure-visual img { display: block; width: 100%; height: auto; }
+    .infrastructure-visual figcaption {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .infrastructure-visual figcaption strong,
+    .infrastructure-visual figcaption span {
+      display: block;
+    }
+
+    .infrastructure-visual figcaption span {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.5;
+      text-transform: none;
+    }
+
+    .build-section {
+      padding: 72px 42px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    section.build-section > .eyebrow { color: var(--gold); }
+    .build-section h2 { max-width: 900px; color: var(--white); }
+    .build-intro { max-width: 820px; color: rgba(255,255,255,.82); font-size: 20px; line-height: 1.55; }
+    .build-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 390px); gap: 42px; align-items: center; }
+    .build-card { display: flex; min-height: 266px; padding: 26px; flex-direction: column; border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.08); }
+    .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 29px/1.12 Georgia, "Times New Roman", serif; }
+    .build-card p { margin: 0 0 20px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.5; }
+    .build-card a { margin-top: auto; color: var(--white); font-size: 15px; font-weight: 700; text-underline-offset: 4px; }
+    .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .build-card { display: flex; min-height: 220px; padding: 24px; flex-direction: column; border: 1px solid var(--gold); background: var(--gold); }
+    .build-card { border-top: 4px solid var(--gold); }
+    .build-card h3 { margin: 0 0 12px; color: var(--white); font: 400 28px/1.12 Georgia, "Times New Roman", serif; }
+    .build-card p { margin: 0 0 20px; color: var(--white); font-size: 16px; line-height: 1.5; }
+    .build-card a { display: inline-block; align-self: flex-start; margin-top: auto; padding: 0; background: transparent; color: var(--navy); font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+    .build-card .build-email { margin-top: 8px; color: rgba(255,255,255,.82); font-weight: 400; }
+
+    .cycle-preview {
+      margin-top: 48px;
+    }
+
+    .cycle-preview h3 {
+      margin: 0 0 20px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 3vw, 40px);
+      font-weight: 400;
+    }
+
+    .cycle-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .cycle-preview-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      border-top: 4px solid var(--coral);
+      background: var(--soft);
+    }
+
+    .cycle-preview-card img {
+      display: block;
+      width: min(100%, 500px);
+      margin: 0 auto 18px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .cycle-preview-body { padding: 18px 18px 20px; }
+    .cycle-preview-number { margin: 0 0 6px; color: var(--coral); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .cycle-preview-card h4 { margin: 0 0 8px; color: var(--navy); font: 400 23px/1.1 Georgia, "Times New Roman", serif; }
+    .cycle-preview-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
+
+    .cycle-carousel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; }
+    .cycle-carousel-viewport { min-width: 0; overflow: hidden; }
+    .cycle-preview-grid { display: flex; gap: 0; transition: transform .45s ease; }
+    .cycle-preview-card { display: flex; flex-direction: column; width: min(100%, 640px); margin: 0 auto; flex: 0 0 100%; min-width: 0; }
+    .cycle-preview-body { display: block; padding: 18px 18px 20px; }
+    .cycle-preview-card img { width: 100%; }
+    .cycle-carousel-button { width: 46px; height: 46px; border: 1px solid var(--navy); border-radius: 50%; background: var(--white); color: var(--navy); cursor: pointer; font-size: 25px; line-height: 1; }
+    .cycle-carousel-button:hover, .cycle-carousel-button:focus-visible { background: var(--navy); color: var(--white); }
+    @media (max-width: 620px) { .cycle-carousel { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; } .cycle-carousel-button { width: 38px; height: 38px; font-size: 21px; } }
+
+    .gap h2 { color: var(--white); }
+
+    .gap a { color: var(--sky); }
+
+    .gap a { text-underline-offset: 4px; }
+
+    .inheritance-link {
+      max-width: 1180px;
+      margin: 22px auto 0;
+      padding: 0 var(--page-pad);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .inheritance-link a {
+      color: var(--navy);
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .build-section .inheritance-link {
+      margin: 24px 0 0;
+      padding: 0;
+      color: rgba(255,255,255,.72);
+    }
+
+    .build-section .inheritance-link a { color: var(--gold); }
+
+    .gap p {
+      max-width: 780px;
+      font-size: 21px;
+    }
+
+    .gap strong { color: var(--white); }
+
+    .method-system {
+      margin-top: 42px;
+      padding: 34px;
+      background: var(--soft);
+      border-top: 5px solid var(--navy);
+    }
+
+    .method-label {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .method-entries {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .entry-point {
+      padding: 16px 18px;
+      border-bottom: 3px solid var(--sky);
+      background: var(--white);
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .entry-point:nth-child(2) { border-color: var(--gold); }
+    .entry-point:nth-child(3) { border-color: var(--coral); }
+
+    .convergence {
+      height: 34px;
+      margin: 0 16.66%;
+      border-right: 1px solid var(--navy);
+      border-bottom: 1px solid var(--navy);
+      border-left: 1px solid var(--navy);
+    }
+
+    .method-core {
+      padding: 28px 30px 30px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .method-core h3 {
+      margin: 0 0 22px;
+      color: var(--white);
+      font-size: 25px;
+    }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      counter-reset: method-step;
+    }
+
+    .method-step {
+      position: relative;
+      padding: 28px 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.55);
+      counter-increment: method-step;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .method-step::before {
+      position: absolute;
+      top: -13px;
+      left: 0;
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--sky);
+      color: var(--navy);
+      content: counter(method-step);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .method-step strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    .bifurcation {
+      position: relative;
+      height: 50px;
+      margin: 0 25%;
+      border-right: 1px solid var(--navy);
+      border-bottom: 1px solid var(--navy);
+      border-left: 1px solid var(--navy);
+    }
+
+    .bifurcation::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 25px;
+      border-left: 1px solid var(--navy);
+      content: "";
+    }
+
+    .method-outcomes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .method-outcome {
+      padding: 24px 26px;
+      background: var(--white);
+    }
+
+    .method-outcome:last-child { border-bottom: 5px solid var(--sky); }
+    .method-outcome:first-child { border-bottom: 5px solid var(--gold); }
+
+    .method-outcome h3 { margin-bottom: 8px; font-size: 21px; }
+
+    .method-outcome p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .method-return {
+      margin: 22px auto 0;
+      color: var(--navy);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .heart-section {
+      padding-top: 78px;
+      padding-bottom: 78px;
+      background: linear-gradient(135deg, #f3f6fa 0%, #ffffff 62%, #fff8e8 100%);
+    }
+
+    .heart-intro { max-width: 1080px; }
+
+    .heart-intro .response-statement {
+      max-width: 1000px;
+      margin: 28px 0 42px;
+      padding: 26px 30px;
+      border-left: 6px solid var(--coral);
+      background: var(--white);
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      line-height: 1.55;
+    }
+
+    .heart-model {
+      margin-top: 0;
+      padding: 38px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .heart-equation {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: stretch;
+      gap: 18px;
+    }
+
+    .equation-card {
+      padding: 25px 24px;
+      border-top: 5px solid var(--sky);
+      background: var(--white);
+    }
+
+    .equation-card:nth-of-type(2) { border-color: var(--gold); }
+    .equation-card:nth-of-type(3) { border-color: var(--coral); }
+
+    .equation-card small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .equation-card h3 { font-size: 24px; }
+
+    .equation-card h3 a { color: var(--navy); text-underline-offset: 4px; }
+
+    .equation-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .heart-mark {
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 32px;
+      font-weight: 300;
+    }
+
+    .contribution-path {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 44px;
+      counter-reset: contribution-stage;
+    }
+
+    .contribution-stage {
+      position: relative;
+      padding: 30px 24px 20px 0;
+      border-top: 1px solid rgba(255,255,255,.55);
+      counter-increment: contribution-stage;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .contribution-stage::before {
+      position: absolute;
+      top: -15px;
+      left: 0;
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--sky);
+      color: var(--navy);
+      content: counter(contribution-stage);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .contribution-stage strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--white);
+      font-size: 17px;
+    }
+
+    .ledger-split-label {
+      margin: 26px 0 12px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .heart-outcomes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .heart-outcome {
+      padding: 27px 28px;
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .heart-outcome:first-child { border-bottom: 6px solid var(--sky); }
+    .heart-outcome:last-child { border-bottom: 6px solid var(--gold); }
+    .heart-outcome h3 { font-size: 23px; }
+    .heart-outcome p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+
+    .compounded-result {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      margin-top: 22px;
+      padding: 22px 28px;
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .compounded-result strong { display: block; color: var(--white); font-size: 20px; }
+    .result-plus { color: var(--gold); font-size: 28px; }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .column {
+      padding: 28px;
+      border: 2px solid var(--navy);
+      background: var(--white);
+    }
+
+    .column ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
+    }
+
+    .column li { margin: 8px 0; }
+
+    .bridge {
+      max-width: 760px;
+      margin: 28px auto 0;
+      color: var(--navy);
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .ledger {
+      display: grid;
+      grid-template-columns: 1fr 92px 1fr;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 36px;
+    }
+
+    .ledger-entry {
+      padding: 30px 32px;
+      background: var(--soft);
+      border-top: 4px solid var(--navy);
+    }
+
+    .ledger-entry .label {
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .ledger-entry ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
+    }
+
+    .ledger-entry li { margin: 7px 0; }
+
+    .ledger-connection {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .ledger-connection::before {
+      position: absolute;
+      right: 0;
+      left: 0;
+      border-top: 2px solid var(--navy);
+      content: "";
+    }
+
+    .ledger-connection span {
+      position: relative;
+      display: grid;
+      width: 72px;
+      height: 72px;
+      padding: 8px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .infrastructure-equation {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+      padding: 22px 26px;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .equation-mark { color: var(--sky); font-size: 28px; }
+
+    .commonwealth {
+      margin-top: 30px;
+      padding: 28px 30px;
+      border-left: 5px solid var(--sky);
+      background: var(--soft);
+    }
+
+    .commonwealth h3 { margin-bottom: 9px; font-size: 23px; }
+
+    .commonwealth p {
+      max-width: 820px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .ownership-line {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .ownership-line p {
+      margin: 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--navy);
+      color: var(--navy);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .funding {
+      padding-bottom: 62px;
+    }
+
+    .invitation {
+      padding: 46px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .invitation h2 { color: var(--white); }
+    .invitation .eyebrow { color: var(--sky); }
+
+    .participant-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 26px 0 32px;
+    }
+
+    .participant-list span {
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .cta-link {
+      display: inline-block;
+      padding: 14px 19px;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      padding: 30px var(--page-pad);
+      border-top: 6px solid var(--gold);
+      background: #14284d;
+      color: rgba(255,255,255,.78);
+    }
+
+    .site-footer p {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      max-width: none;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .site-footer .footer-brand { justify-self: start; }
+    .site-footer .footer-sites { justify-self: center; text-align: center; }
+    .site-footer .footer-copyright { justify-self: end; text-align: right; }
+
+    .site-footer a {
+      color: var(--white);
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .funding .reading a {
+      color: var(--navy);
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    .funding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .funding-option {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--sky);
+      background: var(--white);
+    }
+
+    .funding-option:nth-child(2) { border-top-color: var(--gold); }
+    .funding-option:nth-child(3) { border-top-color: var(--coral); }
+
+    .funding-option strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 30px;
+    }
+
+    .funding-option p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .funding-option small {
+      display: block;
+      margin-bottom: 7px;
+      color: #9a6b08;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .model-bridge {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 30px;
+      background: #f8f3e6;
+      border-left: 4px solid #c28a13;
+    }
+
+    .model-bridge h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .model-bridge p { margin: 0; color: var(--muted); }
+
+    .model-link {
+      display: inline-block;
+      padding: 14px 19px;
+      background: var(--navy);
+      color: var(--white) !important;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .model-link:hover { background: var(--blue); }
+
+    .closing {
+      margin-top: 38px;
+      padding: 30px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 23px;
+      line-height: 1.45;
+    }
+
+    .sources {
+      margin-top: 54px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .methodology-layout { grid-template-columns: 1fr; gap: 34px; }
+      .method-steps { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+      .heart-equation { grid-template-columns: 1fr; }
+      .heart-mark { min-height: 34px; }
+      .nav-inner { align-items: flex-start; flex-direction: column; gap: 8px; padding-top: 13px; padding-bottom: 13px; }
+      .nav-links { width: 100%; justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
+    }
+
+    @media (max-width: 620px) {
+      body { font-size: 17px; }
+      main { width: 100%; padding-top: 0; }
+      header { padding-top: 42px; }
+      section { padding-top: 46px; padding-bottom: 46px; }
+      .lineage, .two-columns, .ledger, .funding-grid, .model-bridge, .exemplar-grid, .difference-section, .tension-grid, .gap-layout { grid-template-columns: 1fr; }
+      .simple-system-grid { grid-template-columns: 1fr; }
+      .methodology-grid { grid-template-columns: 1fr; }
+      .people-grid, .credibility-grid { grid-template-columns: 1fr; }
+      .infrastructure-grid { grid-template-columns: 1fr; }
+      .build-grid { grid-template-columns: 1fr; }
+      .build-layout { grid-template-columns: 1fr; gap: 28px; }
+      .infrastructure-layout { grid-template-columns: 1fr; gap: 34px; }
+      .cumulative-assets { padding: 42px 22px 48px; }
+      .cycle-preview-grid { grid-template-columns: 1fr; }
+      .tension-grid { gap: 4px; }
+      .lineage-stop summary { font-size: 20px; }
+      .lineage-stop p { margin-right: 8px; }
+      .gap { padding: 28px 22px; }
+      .heart-intro .response-statement { padding: 22px; font-size: 19px; }
+      .method-system { padding: 22px 16px; }
+      .method-entries, .method-outcomes { grid-template-columns: 1fr; }
+      .convergence, .bifurcation { display: none; }
+      .method-core { margin: 18px 0; padding: 26px 22px; }
+      .method-steps { grid-template-columns: 1fr; gap: 30px; }
+      .method-outcomes { gap: 12px; }
+      .heart-model { padding: 25px 18px; }
+      .contribution-path, .heart-outcomes, .compounded-result { grid-template-columns: 1fr; }
+      .contribution-path { gap: 28px; }
+      .result-plus { line-height: .7; }
+      .ledger { grid-template-columns: 1fr; }
+      .ledger-connection { min-height: 82px; }
+      .ledger-connection::before { top: 0; bottom: 0; left: 50%; right: auto; border-top: 0; border-left: 2px solid var(--navy); }
+      .infrastructure-equation { grid-template-columns: 1fr; }
+      .equation-mark { line-height: 0.8; }
+      .ownership-line { grid-template-columns: 1fr; }
+      .site-footer p { grid-template-columns: 1fr; gap: 10px; }
+      .site-footer .footer-brand, .site-footer .footer-sites, .site-footer .footer-copyright { justify-self: start; text-align: left; }
+      .invitation { padding: 30px 22px; }
+      .callout { padding: 20px; font-size: 19px; }
+      .national-footprint { padding: 22px 12px; overflow-x: visible; }
+      .footprint-stats { grid-template-columns: 1fr; }
+      .regional-capacities { grid-template-columns: 1fr; }
+      .inheritance-braid { grid-template-columns: 1fr; }
+      .tile-map {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-template-rows: repeat(8, 24px);
+        gap: 3px;
+      }
+      .state-tile,
+      .state-tile-button { font-size: 9px; }
+      .market-detail-panel { padding: 24px 20px; }
+    }
+
+    @media print {
+      @page { size: letter; margin: 0.55in; }
+      body { font-size: 10pt; }
+      main { width: 100%; padding: 0; }
+      header, section { break-inside: avoid; }
+      .method-system, .lineage { break-inside: avoid; }
+      .credibility-section { padding-left: 22px; padding-right: 22px; }
+      .credibility-subhead { font-size: 31px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header id="top">
+      <p class="site-path">Civic Labs / Community Schools</p>
+      <h1>Turn Community Schools into Civic Infrastructure.</h1>
+      <p class="lede">Community Schools already connect young people with educators, families, community organizations, and neighborhood resources. Civic Labs use the platform we already have to turn those relationships into rigorous learning, useful public work, and valuable community assets.</p>
+    </header>
+
+    <section id="civic-labs">
+      <p class="eyebrow">Civic Labs in action</p>
+      <h2>The gap is not only curriculum. It is the capacity to use curriculum well.</h2>
+      <p class="exemplar-intro">We can share curriculum that has already been made. But educators need more than materials. They need the structures, time, relationships, and professional learning that help students turn a real community question into rigorous, interdisciplinary, public work—without asking every school community to reinvent the wheel.</p>
+
+      <div class="place-question">
+        <p class="eyebrow">Start with what already exists</p>
+        <h3>How can the resources, relationships, and learning time already present in a school become more useful?</h3>
+        <p>A Civic Lab begins with a community question, but it grows through the everyday work of educators and partners. The work may draw on existing courses, Community School relationships, university resources, after-school programs, summer learning, career pathways, and local institutions.</p>
+        <p>The aim is not to add one more program. It is to help schools make the work they already care about more authentic, connected, rigorous, and visible.</p>
+      </div>
+
+      <div class="methodology-grid">
+        <article class="methodology-card"><p class="cycle-preview-number">01 · Make it authentic</p><h3>Begin with a question that belongs to a place.</h3><p>Students investigate an issue that affects people they can listen to and an institution or community partner that can respond to what they learn.</p></article>
+        <article class="methodology-card"><p class="cycle-preview-number">02 · Work across disciplines</p><h3>Give teachers a shared structure for interdisciplinary work.</h3><p>A common question can connect history, science, mathematics, English, civics, economics, career and technical education, data, and public presentation.</p></article>
+        <article class="methodology-card"><p class="cycle-preview-number">03 · Support the educator</p><h3>Make the practice learnable and repeatable.</h3><p>Teachers need planning tools, protocols, examples, coaching, time to collaborate, and a community of practice where they can learn from one another.</p></article>
+        <article class="methodology-card"><p class="cycle-preview-number">04 · Use the whole learning day</p><h3>Connect school-day and out-of-school learning.</h3><p>After-school programs, summer learning, internships, university partnerships, community organizations, and public demonstrations can extend the inquiry without fragmenting it.</p></article>
+        <article class="methodology-card"><p class="cycle-preview-number">05 · Make rigor visible</p><h3>Connect public work to standards, assessment, and recognition.</h3><p>Students can demonstrate disciplinary knowledge, research, reasoning, collaboration, communication, and civic judgment through work that counts toward meaningful academic and graduation pathways.</p></article>
+        <article class="methodology-card"><p class="cycle-preview-number">06 · Learn across schools</p><h3>Build shared memory instead of starting over.</h3><p>Schools can adapt a common learning arc, compare evidence, preserve what works, and contribute to a growing body of practice while keeping authority in the local community.</p></article>
+      </div>
+
+      <div class="place-question"><p><strong>Curriculum is a resource. Civic Labs are the conditions that help a school community use it well.</strong> The work is to start with what already exists, connect it to a real question, and help it grow into what the community needs.</p></div>
+    </section>
+
+    <section class="credibility-section" id="people-and-practice">
+      <p class="eyebrow">The work behind the work</p>
+      <h2>This is the practice we have carried across places.</h2>
+      <p class="credibility-intro">Before Civic Labs had a name, we were building the connective tissue that helps people learn, contribute, and move resources through institutions that already exist. We are looking for the next place where that practice can serve public education.</p>
+
+      <div class="people-grid">
+        <article class="person-card"><img class="person-photo" src="../../assets/images/team-alfredo.jpg" alt="Alfredo Mathew III"><div class="person-card-body"><p class="role">Public education · economic democracy</p><h3>Alfredo Mathew III</h3><p>Alfredo is an educator, entrepreneur, and systems builder with more than twenty-five years across public education, civic learning, entrepreneurial ecosystem building, community development, and institutional design.</p><p>He was a founding teacher at Mott Haven Village Prep in the South Bronx, taught at Blair International Baccalaureate High School and Leadership Public Schools in East Oakland, and served as Bay Area Director of NFTE. As a co-founder of ESO Ventures, he helped build a statewide entrepreneurial support organization and now leads SPCC.1’s work connecting public education, economic democracy, and shared prosperity.</p></div></article>
+        <article class="person-card"><img class="person-photo" src="../../assets/images/team-amy.jpg" alt="Amy Chan"><div class="person-card-body"><p class="role">Civic learning · youth leadership</p><h3>Amy Chan</h3><p>Amy is an entrepreneur, strategist, and educator with more than twenty years of experience working across educational institutions, nonprofits, government agencies, and businesses with social-justice missions.</p><p>Through Citizen Schools in Boston and California, she built youth programs and connected young people to adults and institutions beyond school. At the Coro Center for Civic Leadership, she directed youth programs across twelve Bay Area public high schools. At the University of Chicago, she served as Director of the University Community Service Center and Associate Dean of Students, leading thirteen programs, more than 250 community partnerships, and a staff team of 23.</p></div></article>
+        <article class="person-card"><img class="person-photo" src="../../assets/images/team-alfred.jpeg" alt="Alfred Solis"><div class="person-card-body"><p class="role">Deeper learning · project-based practice</p><h3>Alfred Solis</h3><p>Al is an educator, learning designer, strategist, and field-builder whose work has helped shape the small-schools, Deeper Learning, project-based learning, and high-school redesign movements.</p><p>At High Tech High, he worked as a math and physics teacher, facilitator, and Digital Commons lead. At the Buck Institute for Education, now PBLWorks, he helped develop PBL 101 and expand PBL World. At XQ Institute, part of the Emerson Collective, he created professional learning for schools and partners across the country and helped develop a national partnership with the Carnegie Foundation for the Advancement of Teaching.</p></div></article>
+      </div>
+
+      <h3 class="credibility-subhead">Two places where this practice took shape</h3>
+      <div class="credibility-grid">
+        <article class="credibility-card">
+          <img class="story-photo" src="assets/nfte-nasdaq.jpg" alt="Alfredo Mathew III with NFTE students and colleagues in front of the Nasdaq Entrepreneurial Center.">
+          <div class="story-body">
+            <p class="story-label">Young people · schools · real-world work</p>
+            <h3>NFTE: Network for Teaching Entrepreneurship</h3>
+            <p>At NFTE, I built relationships with schools and Silicon Valley companies and brought them together through business-plan competitions, design challenges, and experiences that gave young people something real to work on.</p>
+            <details class="story-details"><summary>Read the case study</summary>
+              <p><strong>Making the Bay Area a classroom.</strong> When I became the Bay Area director for NFTE—the Network for Teaching Entrepreneurship—I was coming out of public education. I had taught in New York and Oakland, and I cared deeply about the young people I served. But I also saw how easily schools could become isolated from the communities, industries, and opportunities surrounding them.</p>
+              <p>At NFTE, I began building relationships across the region. I connected high schools and school districts in East San Jose, Oakland, Hayward, Richmond, and San Francisco with companies including Cisco, PayPal, Salesforce, EY, and SAP. Some days I spent hours driving from one school district to another and then across Silicon Valley to meet with a corporate partner. My classroom became the entire Bay Area.</p>
+              <p>The work was practical. We organized business-plan competitions, design challenges, entrepreneurship programs, company visits, and public presentations. Students were not simply reading about entrepreneurship. They were developing ideas, studying real businesses, presenting to adults, receiving feedback, and learning how institutions and economies actually worked.</p>
+              <p>Often, the first challenge was access. In California, it was difficult for schools to get students out into the region. So I asked companies to help. Cisco and PayPal paid for buses. That simple act transformed the relationship between a school and a company. A company was no longer just a distant brand, and a school was no longer asking for charity. Together, they were creating an experience students could not have built alone.</p>
+              <p>We worked with thousands of young people, many of whom were developing small businesses, community businesses, and ideas rooted in their neighborhoods. The experience taught me that young people do not need to be separated from the economic world in order to be protected from it. They need guided access, meaningful questions, real audiences, and adults who can help them see possibilities.</p>
+              <p>The deeper accomplishment was relational. NFTE created a bridge among educators, school leaders, students, companies, and communities. It made social capital visible and useful. It showed that curriculum becomes more powerful when it is connected to people, places, institutions, and consequences.</p>
+              <p>The lesson I carried forward was that education is not only what happens inside a classroom. Learning grows when schools can draw on the knowledge and resources of the surrounding community. The work of an intermediary is to help those relationships form, to make participation possible, and to turn scattered opportunities into a coherent learning experience.</p>
+              <p>NFTE was an early expression of the practice I now call Civic Labs: start with young people, connect them to the world around them, and build the relationships that allow learning to become real.</p>
+            </details>
+          </div>
+        </article>
+        <article class="credibility-card">
+          <img class="story-photo eso" src="assets/eso-ventures-winner-2022.webp" alt="ESO Ventures entrepreneurs and collaborators gathered outdoors with certificates from a 2022 program.">
+          <div class="story-body">
+            <p class="story-label">Adults · entrepreneurs · community infrastructure</p>
+            <h3>ESO Ventures</h3>
+            <p>At ESO Ventures, I helped build a system around entrepreneurs: community college partnerships, cohorts, curriculum, coaching, public and philanthropic resources, and capital.</p>
+            <details class="story-details"><summary>Read the case study</summary>
+              <p><strong>Building an on-ramp to ownership.</strong> ESO Ventures began in Oakland in 2020 through a partnership involving the City of Oakland, Merritt College, the Bay Area Community College Consortium, and community-based leaders. The initial question was simple and urgent: how could existing public institutions and community relationships help Black and Brown entrepreneurs build businesses and gain access to capital?</p>
+              <p>I joined Ben Wanzo and Martha Hernandez to turn that question into an operating system. We launched a virtual business incubator and organized the work around the idea “Build Where You Are.” The goal was not to import a Silicon Valley model into East Oakland. It was to build from the people, institutions, knowledge, and aspirations already present in the community.</p>
+              <p>Community colleges became part of the backbone. They offered trusted locations, educational infrastructure, faculty relationships, and access to people who were often overlooked by conventional entrepreneurship programs. ESO added the connective tissue: recruitment, cohorts, curriculum, coaching, business planning, technical assistance, relationships with service providers, and pathways to capital.</p>
+              <p>The curriculum was important, but it was never the whole intervention. Entrepreneurs participated in weekly group sessions and individual coaching. They developed goals, clarified their business identity, studied their markets, created strategic plans, worked through financial planning, and prepared to present their businesses publicly. The program connected confidence to competence, and competence to capital.</p>
+              <p>The work also required braiding different forms of social and financial capital. Public institutions supplied legitimacy and reach. Community colleges supplied infrastructure. Philanthropy helped fund design and operations. Political leaders helped create a public pathway. Entrepreneurs supplied knowledge, proof, and moral authority. Coaches, advisors, lenders, and service providers added specialized resources.</p>
+              <p>That braid helped produce the California Entrepreneurship and Community Act and approximately $18 million in state capital for community entrepreneurs. ESO and its partners went on to serve hundreds of entrepreneurs—eventually more than 600—and deploy millions of dollars to businesses. Many participants received institutional capital for the first time.</p>
+              <p>The accomplishment was not simply the creation of a fund or an incubator. It was the construction of a pathway. People could enter through a community relationship, move through learning and coaching, connect with peers and institutions, and become eligible for resources that had previously been out of reach.</p>
+              <p>ESO taught me that people do not need isolated programs. They need structures that connect learning, relationships, support, and resources over time. It also taught me that financial capital works differently when it arrives through trusted social infrastructure.</p>
+              <p>That is the lesson I want to bring back into public education: curriculum, relationships, institutions, and resources should not remain separate. A school community should be able to use what it already has to help young people build knowledge, agency, contribution, and eventually ownership.</p>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <p class="credibility-close">Both examples began with what was already there. We braided social capital, unlocked resources, and built capacity around people doing the work. The next step is to bring that practice back into the systems of public education.</p>
+    </section>
+
+    <section class="national-market" id="civic-inheritance">
+      <div class="reading">
+        <p class="eyebrow">A living civic inheritance</p>
+        <h2>The strands already exist. The opportunity is to braid them.</h2>
+        <p>Across the country, people have built schools as community institutions, small schools around relationships and local authority, deeper-learning networks around real-world work, universities around public purpose, and civic traditions around shared responsibility. These strands have often developed separately. The opportunity is to bring them into relationship in a real place.</p>
+      </div>
+
+      <div class="inheritance-braid">
+        <div class="strand-list">
+          <article class="strand" style="--strand-color:#dc745f"><div><h3>Community Schools</h3><p>Schools as neighborhood institutions connected to families, public agencies, health, food, housing, and local organizations.</p><small>North Carolina · Southeast</small></div></article>
+          <article class="strand" style="--strand-color:#e6b84a"><div><h3>Small Schools and Community Authority</h3><p>Smaller learning communities, teacher judgment, student exhibitions, local voice, and the question of who has authority over public education.</p><small>New York City · Northeast</small></div></article>
+          <article class="strand" style="--strand-color:#5d8fb9"><div><h3>Deeper Learning and Project-Based Practice</h3><p>Inquiry, interdisciplinary projects, internships, performance, and public demonstrations that connect learning to life beyond school.</p><small>California · New England · national networks</small></div></article>
+          <article class="strand" style="--strand-color:#7c6cae"><div><h3>University-Assisted Community Schools</h3><p>Universities connecting research, teaching, students, and faculty to community-identified questions and long-term local partnerships.</p><small>Penn · Duke · NCCU · ECU · regional centers</small></div></article>
+          <article class="strand" style="--strand-color:#4c8b68"><div><h3>Economic Democracy and the Commonwealth</h3><p>Questions of ownership, governance, public investment, shared stewardship, and how communities build assets that last.</p><small>Every place has a stake</small></div></article>
+        </div>
+        <div class="convergence">
+          <p class="eyebrow">One place to show what is possible</p>
+          <h3>North Carolina and the Southeast</h3>
+          <p>North Carolina is not a place waiting for a model to arrive. It is a place with its own history, relationships, institutions, and knowledge about how communities build together.</p>
+          <p>Real-world project-based learning can become the working practice where these strands meet: a community question, a rigorous classroom, university and community partners, a public audience, and something useful left behind.</p>
+          <p><strong>The work is to grow what is already here.</strong></p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="gap">
+      <div class="gap-layout">
+        <div>
+          <p class="eyebrow">The civic ecosystem analysis</p>
+          <h2>The field has civic learning organizations. It lacks the capacity to act together.</h2>
+          <p>In <a href="https://www.hoover.org/sites/default/files/research/docs/Schnaubelt_AmericanCivicEducationEcosystem_web-251111.pdf" target="_blank" rel="noopener"><em>The American Civic Education Ecosystem: A Landscape Analysis</em></a>, Tom Schnaubelt, Karina Kloos, and Connor Begovich identify three connected capacity gaps:</p>
+
+          <ul class="gap-findings">
+            <li><strong>Curriculum is abundant. Coherence is not.</strong> Educators face a saturated field of materials without a shared way to select, connect, and use them around consequential public work.</li>
+            <li><strong>The ecosystem remains siloed.</strong> K–12 schools, higher education, community organizations, and civic institutions work in parallel rather than as one learning system.</li>
+            <li><strong>Constructive engagement requires practice.</strong> Young people need real opportunities to work across ideological, racial, geographic, and socioeconomic differences—not only learn about them.</li>
+          </ul>
+        </div>
+        <figure class="gap-report">
+          <img src="assets/american-civic-education-ecosystem-01.png" alt="Cover page of The American Civic Education Ecosystem: A Landscape Analysis by Tom Schnaubelt, Karina Kloos, and Connor Begovich.">
+          <figcaption><a href="https://www.hoover.org/sites/default/files/research/docs/Schnaubelt_AmericanCivicEducationEcosystem_web-251111.pdf" target="_blank" rel="noopener">View the full report ↗</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="methodology">
+      <p class="eyebrow">Growing the shared capacity of public institutions</p>
+      <h2>Shared capacity grows when the work has a real home.</h2>
+      <div class="methodology-layout">
+        <div class="methodology-copy">
+          <p>Community Schools, universities, libraries, public agencies, and community organizations already carry relationships, knowledge, space, and resources. The practical question is whether those assets can be brought together around work a community has a reason to do now.</p>
+          <p><strong>Every serious engagement begins with a mandate, a budget, and a scope of work.</strong> The mandate names the public purpose and the institution or community responsible for acting. The budget makes time, coordination, participation, and follow-through possible. The scope makes the work bounded enough to do well and concrete enough to be useful.</p>
+          <p>Within that container, a Civic Lab can help the right people investigate a consequential issue, connect learning to public work, and produce something that helps a real community or institution understand what to do next.</p>
+          <p><strong>The goal is not to add another program.</strong> It is to help existing institutions use more of the capacity they already possess—and leave the people involved with stronger relationships, clearer knowledge, and a next step they can carry forward.</p>
+        </div>
+        <figure class="methodology-visual">
+      <img src="assets/shared-capacity-southeast.png" alt="A racially diverse group of Southeast students, educators, healthcare workers, entrepreneurs, families, and elders working across healthcare, learning, jobs, place, climate, and food.">
+      <figcaption><strong>Shared Capacity for Place-Based Work</strong><span>Healthcare, learning, work, place, resilience, and food become shared questions when communities learn and act together.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="infrastructure-section">
+      <p class="eyebrow">Leaving the work stronger</p>
+      <h2>A good project leaves a community with more capacity than it had before.</h2>
+      <div class="infrastructure-layout">
+        <div class="infrastructure-narrative">
+          <p><strong>The work should not disappear when the project ends.</strong> Students may produce research. Teachers may develop a new practice. Families and community partners may open relationships. Universities may contribute time and expertise. A public institution may have a clearer decision in front of it.</p>
+          <p>We help name what was learned, who contributed, what was made, and what should happen next. That record can be simple: a public presentation, a research brief, a map, a set of recommendations, a new partnership, or a decision that the community can see and respond to.</p>
+          <p>The purpose is not to turn relationships into transactions. It is to protect community memory, recognize the work people do, and help the next person or institution build forward rather than begin again.</p>
+          <p><strong>That is how contribution becomes capacity:</strong> the work is used, the relationships remain available, and the next project begins with more knowledge than the last one.</p>
+        </div>
+        <figure class="infrastructure-visual">
+          <img src="assets/community-learning-ledger.png" alt="Circular sequence showing a community issue becoming contribution, proof of work, provenance, validation, ownership, and market value through the Community Learning Ledger.">
+          <figcaption><strong>From work to capacity</strong><span>A community question becomes shared learning, a useful artifact, and a clearer next step.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="build-section">
+      <p class="eyebrow">A practical beginning</p>
+      <div class="build-layout">
+        <div><h2>Bring the mandate. We will help shape the work.</h2><p class="build-intro">Every Civic Lab begins with three things: a mandate, a budget, and a scope of work.</p><p class="build-intro">If you have those pieces—or are trying to assemble them—we can help make the work concrete, identify the people and resources already available, and determine whether a shared project would add value.</p><p class="inheritance-link"><a href="../community-schools/lineage/">Read the history behind this work: <em>A Public Inheritance</em> →</a></p></div>
+        <article class="build-card"><h3>Get in touch with Alfredo</h3><p>Bring a community, an institution, a question, or the support that makes the work possible.</p><p>We can start with what is already present, what is missing, and what might be useful to build together.</p><a href="mailto:alfredo@spcc.one?subject=Civic%20Labs%20conversation">Email Alfredo →</a><a class="build-email" href="mailto:alfredo@spcc.one?subject=Civic%20Labs%20conversation">alfredo@spcc.one</a></article>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <p><span class="footer-brand"><strong>Shared Prosperity Community Corporation ONE</strong></span><span class="footer-sites"><a href="https://www.spcc.one/">SPCC.1</a> · <a href="#top">Civic Labs</a> · <a href="https://www.economicdemocracy.co/">Economic Democracy</a> · <a href="https://covenantos.co/">Covenant OS</a></span><span class="footer-copyright">© 2026 SPCC.1. All rights reserved.</span></p>
+  </footer>
+  <script>
+    const pageMain = document.querySelector('main');
+    const civicLabsSection = document.querySelector('#civic-labs');
+    const inheritanceSection = document.querySelector('#civic-inheritance');
+    const ecosystemSection = document.querySelector('section.gap');
+    if (pageMain && civicLabsSection && inheritanceSection && ecosystemSection) {
+      pageMain.insertBefore(inheritanceSection, civicLabsSection);
+      pageMain.insertBefore(ecosystemSection, civicLabsSection);
+    }
+
+    const carouselTrack = document.querySelector('[data-carousel-track]');
+    const carouselCards = carouselTrack ? Array.from(carouselTrack.querySelectorAll('.cycle-preview-card')) : [];
+    const carouselStatus = document.querySelector('[data-carousel-status]');
+    let carouselIndex = 0;
+    const carouselLabels = ['Public issue', 'Notice the place', 'Ask better questions', 'Listen and gather evidence', 'Make sense together', 'Create a public response', 'Return value to the community'];
+    const updateCarousel = () => {
+      if (!carouselTrack || !carouselCards.length) return;
+      carouselTrack.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+      if (carouselStatus) carouselStatus.textContent = 'Step ' + (carouselIndex + 1) + ' of ' + carouselCards.length + ' · ' + carouselLabels[carouselIndex];
+    };
+    document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { carouselIndex = (carouselIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
+    document.querySelector('[data-carousel-next]')?.addEventListener('click', () => { carouselIndex = (carouselIndex + 1) % carouselCards.length; updateCarousel(); });
+    const gapLayout = document.querySelector('.gap-layout');
+    const gapReport = gapLayout?.querySelector('.gap-report');
+    const gapReportImage = gapReport?.querySelector('img');
+    const gapReportCaption = gapReport?.querySelector('figcaption');
+    const syncGapReport = () => {
+      if (!gapLayout || !gapReportImage || !gapReportCaption) return;
+      if (window.matchMedia('(max-width: 620px)').matches) {
+        gapReportImage.style.height = 'auto';
+        return;
+      }
+      const leftHeight = gapLayout.firstElementChild.getBoundingClientRect().height;
+      const captionHeight = gapReportCaption.getBoundingClientRect().height;
+      gapReportImage.style.height = Math.max(240, leftHeight - captionHeight - 12) + 'px';
+    };
+    if (gapReportImage) {
+      gapReportImage.addEventListener('load', syncGapReport);
+      window.addEventListener('resize', syncGapReport);
+      requestAnimationFrame(syncGapReport);
+    }
+    const marketTabs = Array.from(document.querySelectorAll('.state-tile-button'));
+    const marketPanels = Array.from(document.querySelectorAll('.market-detail-panel'));
+
+    marketTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const selectedMarket = tab.dataset.market;
+        const wasOpen = tab.getAttribute('aria-expanded') === 'true';
+
+        marketTabs.forEach((item) => item.setAttribute('aria-expanded', 'false'));
+        marketPanels.forEach((panel) => { panel.hidden = true; });
+
+        if (!wasOpen) {
+          tab.setAttribute('aria-expanded', 'true');
+          const selectedPanel = document.querySelector(`[data-panel="${selectedMarket}"]`);
+          if (selectedPanel) selectedPanel.hidden = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
