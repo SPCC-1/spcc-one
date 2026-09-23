@@ -946,6 +946,9 @@
     .person-card p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.5; }
     .person-card p:last-child { margin-bottom: 0; }
     .person-card .role { margin-bottom: 13px; color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    @media (min-width: 621px) {
+      .person-photo { height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+    }
     .credibility-subhead { margin: 58px 0 18px; color: var(--navy); font: 400 36px/1.1 Georgia, "Times New Roman", serif; }
     .credibility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .credibility-card { border: 1px solid var(--line); background: var(--white); }
