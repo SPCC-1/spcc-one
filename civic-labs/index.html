@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Civic Labs connect public questions, real places, and the institutions and relationships communities already have.">
+  <title>Civic Labs | SPCC.1</title>
+  <style>
+    :root { --navy:#1f3864; --blue:#2d4373; --ink:#171a20; --muted:#596273; --line:#d8dee8; --soft:#f3f6fa; --white:#fff; --sky:#7fd6e5; --gold:#e6b84a; --coral:#dc745f; --warm:#fff8e8; --green:#4c8b68; --page-pad:clamp(22px,5vw,96px); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--white); color:var(--ink); font:18px/1.62 Arial,Helvetica,sans-serif; }
+    body::before { display:block; width:100%; height:8px; background:var(--navy); content:""; }
+    a { color:inherit; }
+    header, section, footer { padding-left:var(--page-pad); padding-right:var(--page-pad); }
+    header { padding-top:92px; padding-bottom:86px; background:linear-gradient(135deg,#1f3864 0%,#2d4373 68%,#294d7e 100%); color:var(--white); }
+    header::after { display:block; width:260px; height:8px; margin-top:52px; background:linear-gradient(90deg,var(--sky) 0 42%,var(--gold) 42% 73%,var(--coral) 73%); content:""; }
+    .site-path, .eyebrow { margin:0 0 18px; color:var(--gold); font-size:13px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    header h1 { max-width:900px; margin:0; font:400 clamp(52px,7vw,92px)/.98 Georgia,"Times New Roman",serif; letter-spacing:-.035em; }
+    .lede { max-width:800px; margin:30px 0 0; color:rgba(255,255,255,.86); font-size:clamp(21px,2.4vw,29px); line-height:1.42; }
+    section { padding-top:78px; padding-bottom:78px; border-bottom:1px solid var(--line); }
+    section h2 { max-width:920px; margin:0 0 22px; color:var(--navy); font:400 clamp(36px,5vw,62px)/1.06 Georgia,"Times New Roman",serif; letter-spacing:-.025em; }
+    .section-intro { max-width:850px; color:var(--muted); font-size:21px; line-height:1.55; }
+    .inheritance { background:var(--warm); }
+    .inheritance-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:42px; align-items:start; }
+    .inheritance-list { display:grid; gap:12px; margin-top:28px; }
+    .strand { display:grid; grid-template-columns:9px 1fr; gap:16px; padding:18px 20px; border:1px solid var(--line); background:var(--white); }
+    .strand::before { background:var(--strand-color); content:""; }
+    .strand h3 { margin:0 0 4px; color:var(--navy); font:400 24px/1.15 Georgia,"Times New Roman",serif; }
+    .strand p { margin:0; color:var(--muted); font-size:16px; line-height:1.45; }
+    .inheritance-note { padding:30px; background:var(--navy); color:var(--white); }
+    .inheritance-note h3 { margin:0 0 16px; font:400 36px/1.05 Georgia,"Times New Roman",serif; }
+    .inheritance-note p { margin:0 0 16px; color:rgba(255,255,255,.82); }
+    .inheritance-note strong { color:var(--gold); }
+    .places { background:var(--soft); }
+    .place-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }
+    .place-card { display:flex; min-height:300px; padding:26px; flex-direction:column; border:1px solid var(--line); border-top:5px solid var(--coral); background:var(--white); }
+    .place-card:nth-child(2) { border-top-color:var(--gold); }
+    .place-card:nth-child(3) { border-top-color:var(--green); }
+    .place-card .place-label { margin:0 0 12px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+    .place-card h3 { margin:0 0 12px; color:var(--navy); font:400 31px/1.08 Georgia,"Times New Roman",serif; }
+    .place-card p { margin:0 0 20px; color:var(--muted); font-size:16px; line-height:1.5; }
+    .place-card a { margin-top:auto; color:var(--navy); font-size:15px; font-weight:800; text-underline-offset:4px; }
+    .place-card .developing { margin-top:auto; color:var(--muted); font-size:14px; font-weight:700; }
+    .method { background:var(--white); }
+    .method-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px; }
+    .method-card { padding:22px; border:1px solid var(--line); background:var(--soft); }
+    .method-card b { display:block; margin-bottom:12px; color:var(--coral); font-size:12px; letter-spacing:.1em; }
+    .method-card h3 { margin:0 0 10px; color:var(--navy); font:400 25px/1.1 Georgia,"Times New Roman",serif; }
+    .method-card p { margin:0; color:var(--muted); font-size:15px; line-height:1.45; }
+    .people { background:var(--warm); }
+    .people-copy { max-width:860px; }
+    .people-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .people-links a { padding:12px 16px; border:1px solid var(--navy); color:var(--navy); font-size:15px; font-weight:800; text-decoration:none; }
+    .close { background:var(--navy); color:var(--white); }
+    .close h2 { color:var(--white); }
+    .close p { max-width:780px; color:rgba(255,255,255,.82); }
+    .close-card { max-width:760px; margin-top:28px; padding:26px; border:1px solid rgba(255,255,255,.45); background:rgba(255,255,255,.08); }
+    .close-card h3 { margin:0 0 10px; color:var(--white); font:400 30px/1.1 Georgia,"Times New Roman",serif; }
+    .close-card p { margin:0 0 18px; color:rgba(255,255,255,.82); }
+    .close-card a { color:var(--white); font-weight:800; text-underline-offset:4px; }
+    footer { padding-top:28px; padding-bottom:28px; background:#152c52; color:rgba(255,255,255,.76); font-size:14px; }
+    footer p { display:flex; justify-content:space-between; gap:18px; margin:0; }
+    @media (max-width:820px) { .inheritance-grid { grid-template-columns:1fr; } .method-grid { grid-template-columns:repeat(2,1fr); } footer p { flex-direction:column; } }
+    @media (max-width:620px) { header { padding-top:58px; padding-bottom:58px; } header::after { margin-top:36px; } section { padding-top:54px; padding-bottom:54px; } .place-grid, .method-grid { grid-template-columns:1fr; } .place-card { min-height:0; } .inheritance-note h3 { font-size:32px; } }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <p class="site-path">SPCC.1 / Civic Labs</p>
+    <h1>Public questions. Real places. Shared work.</h1>
+    <p class="lede">Civic Labs help communities use the public institutions, relationships, and knowledge they already have to investigate consequential questions, create rigorous learning, and produce useful public work.</p>
+  </header>
+  <main>
+    <section class="inheritance">
+      <div class="inheritance-grid">
+        <div>
+          <p class="eyebrow">A living civic inheritance</p>
+          <h2>The strands already exist. The opportunity is to braid them.</h2>
+          <p class="section-intro">Across the country, people have built schools as community institutions, deeper-learning networks around real-world work, universities around public purpose, and civic traditions around shared responsibility. Civic Labs bring those strands into relationship in a real place.</p>
+          <div class="inheritance-list">
+            <article class="strand" style="--strand-color:#dc745f"><div><h3>Community Schools</h3><p>Schools as neighborhood institutions connected to families, public agencies, health, food, housing, and local organizations.</p></div></article>
+            <article class="strand" style="--strand-color:#e6b84a"><div><h3>Deeper Learning</h3><p>Inquiry, interdisciplinary projects, internships, performance, and public demonstrations that connect learning to life beyond school.</p></div></article>
+            <article class="strand" style="--strand-color:#5d8fb9"><div><h3>Public Institutions</h3><p>Universities, libraries, agencies, community colleges, and civic organizations contributing knowledge, space, relationships, and reach.</p></div></article>
+            <article class="strand" style="--strand-color:#4c8b68"><div><h3>Economic Democracy</h3><p>Questions of ownership, governance, public investment, shared stewardship, and how communities build assets that last.</p></div></article>
+          </div>
+        </div>
+        <aside class="inheritance-note">
+          <h3>What would it look like if these traditions could work together?</h3>
+          <p>A Civic Lab creates a place where students, educators, institutions, and community partners can investigate a question that matters and make something useful together.</p>
+          <p><strong>The work is not to invent a new system from scratch. It is to grow the capacity already present in a place.</strong></p>
+        </aside>
+      </div>
+    </section>
+    <section class="places">
+      <p class="eyebrow">Find a place to begin</p>
+      <h2>Civic Labs take shape through the character of a place.</h2>
+      <p class="section-intro">Every city and region has its own civic inheritance, institutions, relationships, and questions. The place-based pages show what this work can look like there.</p>
+      <div class="place-grid">
+        <article class="place-card"><p class="place-label">City front door</p><h3>New York City</h3><p>Small schools, Community Schools, public institutions, neighborhood knowledge, and the long practice of making civic life visible through education.</p><span class="developing">Coming next</span></article>
+        <article class="place-card"><p class="place-label">Regional front door</p><h3>California</h3><p>Deeper learning, entrepreneurship, innovation, public investment, and community ownership across a diverse network of places.</p><span class="developing">Coming next</span></article>
+        <article class="place-card"><p class="place-label">Regional front door</p><h3>North Carolina and the Southeast</h3><p>Public education, universities, healthcare, economic opportunity, and the civic capacity already present across the region.</p><a href="southeast/">Enter the Southeast front door →</a></article>
+      </div>
+    </section>
+    <section class="method">
+      <p class="eyebrow">What Civic Labs make possible</p>
+      <h2>A structure for turning a real community question into shared work.</h2>
+      <p class="section-intro">Civic Labs use public education as a common platform. They connect curriculum, educators, students, community partners, universities, public agencies, and local resources around work that matters.</p>
+      <div class="method-grid">
+        <article class="method-card"><b>01 · Place</b><h3>Begin with a question that belongs to a community.</h3><p>Students and partners investigate an issue they can see, study, and discuss with people who live with its consequences.</p></article>
+        <article class="method-card"><b>02 · Practice</b><h3>Support educators in making the work rigorous.</h3><p>Teachers need shared structures, planning time, examples, coaching, and a community of practice.</p></article>
+        <article class="method-card"><b>03 · Contribution</b><h3>Produce something useful for a real audience.</h3><p>Learning becomes public work: a brief, map, recommendation, presentation, tool, or decision.</p></article>
+        <article class="method-card"><b>04 · Capacity</b><h3>Leave the place stronger than before.</h3><p>The work preserves knowledge, relationships, and a next step that others can carry forward.</p></article>
+      </div>
+      <div class="people-links"><a href="community-schools/">Explore the Community Schools method and operating model →</a></div>
+    </section>
+    <section class="people">
+      <p class="eyebrow">The practice behind the invitation</p>
+      <h2>This work is carried by people who have spent their lives connecting institutions to community life.</h2>
+      <div class="people-copy"><p class="section-intro">Civic Labs brings together educators, learning designers, civic leaders, and ecosystem builders who know how to work with what a place already has—and how to connect people and resources around a shared purpose.</p><div class="people-links"><a href="community-schools/">Meet the people behind the work →</a><a href="community-schools/">See the practice in action →</a></div></div>
+    </section>
+    <section class="close">
+      <p class="eyebrow">A practical beginning</p>
+      <h2>Bring the place, the question, or the partnership.</h2>
+      <p>Every Civic Lab begins with a mandate, a budget, and a scope of work. If you have those pieces—or are trying to assemble them—we can help make the work concrete and determine whether a shared project would add value.</p>
+      <div class="close-card"><h3>Get in touch with Alfredo</h3><p>Bring a community, an institution, a question, or the support that makes the work possible.</p><a href="mailto:alfredo@spcc.one?subject=Civic%20Labs%20conversation">Email Alfredo →</a></div>
+    </section>
+  </main>
+  <footer><p><span><strong>Shared Prosperity Community Corporation ONE</strong></span><span><a href="https://www.spcc.one/">SPCC.1</a> · <a href="#top">Civic Labs</a> · <a href="https://www.economicdemocracy.co/">Economic Democracy</a> · <a href="https://covenantos.co/">Covenant OS</a></span></p></footer>
+</body>
+</html>
