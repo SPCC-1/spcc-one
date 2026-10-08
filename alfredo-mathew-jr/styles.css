@@ -44,3 +44,27 @@
 @media(max-width:760px){.hero .hero-visual{margin-top:50px}}
 .hero-copy{grid-row:1}.hero-note{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:auto 1.35fr 1fr 1fr;gap:28px;align-items:center;padding:20px 26px}.hero-note strong{margin:0}.hero-note p{margin:0}.agency-prompt{margin:0;padding:0 0 0 22px;border-top:0;border-left:1px solid #c8bca9}@media(max-width:760px){.hero-note{display:block}.hero-note strong{margin:14px 0}.hero-note p{margin-bottom:16px}.agency-prompt{padding:14px 0 0;border-left:0;border-top:1px solid #c8bca9}}
 .bronx-timeline{grid-template-columns:.55fr 1.45fr;gap:60px}.timeline-explorer{background:#fff;padding:18px}.timeline-image{height:390px}.timeline-buttons{gap:0;justify-content:space-between}.timeline-buttons button{position:relative;min-width:0;width:20%;padding:17px 8px 8px 0}.timeline-buttons button:before{content:"";position:absolute;top:-7px;left:0;width:13px;height:13px;border:3px solid var(--orange);border-radius:50%;background:white}.timeline-buttons button:not(:last-child):after{content:"";position:absolute;top:-1px;left:13px;right:-1px;height:2px;background:var(--orange);z-index:0}.timeline-buttons button span,.timeline-buttons button{position:relative;z-index:1}.timeline-buttons button span{font-size:10px;margin-bottom:8px}.timeline-buttons button{font-size:12px;line-height:1.2}.timeline-copy{padding:25px 0 22px}.timeline-copy h3{font-size:36px}@media(max-width:900px){.bronx-timeline{grid-template-columns:1fr}.timeline-image{height:330px}.timeline-buttons{overflow:visible}}@media(max-width:600px){.timeline-explorer{padding:10px}.timeline-image{height:270px}.timeline-buttons{overflow-x:auto;justify-content:flex-start}.timeline-buttons button{min-width:145px}}
+
+/* Alfredo Mathew Jr. family archive palette: SPCC.1 navy, gold, and white */
+:root{--ink:#123b66;--muted:#526577;--paper:#fff;--cream:#eef4f8;--orange:#d6a23a;--green:#123b66;--line:#d5e0e8}
+body{background:#fff;color:var(--ink)}
+.topbar{background:rgba(255,255,255,.96);border-color:var(--line)}
+.logo span{background:var(--orange)}
+nav a:hover,footer a{color:var(--orange)}
+.vignette-hero{background:var(--ink)}
+.vignette-hero .kicker{color:#f0c45a}
+.vignette-hero h1 i{color:#f0c45a}
+.vignette-hero p:not(.kicker){color:#dbe8f2}
+.vignette-intro{background:#fff}
+.vignette-card{background:#fff;border-color:var(--line)}
+.vignette-copy blockquote:before{color:var(--orange)}
+.vignette-question{background:var(--cream);border-color:var(--orange)}
+.vignette-close{background:var(--ink)}
+.vignette-close p{color:#dbe8f2}
+.vignette-close .button{background:var(--orange);color:var(--ink)}
+.archive-highlights{background:var(--cream)!important}
+.archive-card{border-top-color:var(--orange)!important}
+.archive-card:nth-child(2){border-top-color:#8fb4d1!important}
+.archive-card h3{color:var(--ink)}
+.archive-gallery{background:#fff!important}
+.back-link{color:#f0c45a!important}
