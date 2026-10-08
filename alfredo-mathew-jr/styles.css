@@ -68,3 +68,8 @@ nav a:hover,footer a{color:var(--orange)}
 .archive-card h3{color:var(--ink)}
 .archive-gallery{background:#fff!important}
 .back-link{color:#f0c45a!important}
+footer.site{background:var(--ink);color:#eef4f8;padding:12px 0}
+footer.site .wrap{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:16px}
+.footer-identity{font:600 13px var(--sans);letter-spacing:.04em;color:#eef4f8}
+.footer-copyright{font:12px var(--mono);letter-spacing:.08em;color:rgba(255,255,255,.55)}
+@media(max-width:620px){footer.site .wrap{flex-direction:column;align-items:flex-start;gap:6px}}
